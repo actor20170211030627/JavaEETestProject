@@ -1,0 +1,33 @@
+package com.actor.javaeetestproject.domain;
+
+import java.util.Locale;
+
+/**
+ * Description: 返回基类
+ * Author     : 李大发
+ * Date       : 2020/2/23 on 15:28
+ */
+public class BaseResult<T> {
+    public int code;
+    public String msg;
+    public T t;
+
+    public BaseResult(int code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
+    public BaseResult(int code, String msg, T t) {
+        this.code = code;
+        this.msg = msg;
+        this.t = t;
+    }
+
+    public static BaseResult<Object> resultOk() {
+        return new BaseResult<>(200, "OK");
+    }
+
+    public static BaseResult<Object> resultError(Exception e) {
+        return new BaseResult<>(500, String.format(Locale.getDefault(), "Error: %s", e.getMessage()));
+    }
+}
