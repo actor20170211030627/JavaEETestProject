@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Description: 类的描述
+ * Description: 阿里数据库连接池
  * Author     : 李大发
  * Date       : 2020/2/23 on 17:23
  */

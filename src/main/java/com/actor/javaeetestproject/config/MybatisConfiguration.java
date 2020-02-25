@@ -1,14 +1,12 @@
 package com.actor.javaeetestproject.config;
 
-import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Description: 类的描述
- * Copyright  : Copyright (c) 2020
- * Company    : 重庆酷川科技有限公司 http://www.kuchuanyun.com
+ * Description: 连接数据库的持久层框架
  * Author     : 李大发
  * Date       : 2020/2/23 on 17:17
  */

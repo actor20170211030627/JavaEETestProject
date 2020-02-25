@@ -1,82 +1,82 @@
-#´ÓÃüÃû: from application.properties to application.yml
+#ä»å‘½å: from application.properties to application.yml
 spring:
   main:
     allow-bean-definition-overriding: true
-  # Êı¾İÔ´ÅäÖÃ
+  # æ•°æ®æºé…ç½®
   datasource:
     name: javaee_test_project
     type: com.alibaba.druid.pool.DruidDataSource
-    #druidÏà¹ØÅäÖÃ
+    #druidç›¸å…³é…ç½®
     druid:
-      #ÅäÖÃ¼à¿ØÍ³¼ÆÀ¹½ØµÄfilters,È¥µôºó¼à¿Ø½çÃæsql½«ÎŞ·¨Í³¼Æ,'wall'ÓÃÓÚ·À»ğÇ½
-      filters: stat, wall, log4j
+      #é…ç½®ç›‘æ§ç»Ÿè®¡æ‹¦æˆªçš„filters,å»æ‰åç›‘æ§ç•Œé¢sqlå°†æ— æ³•ç»Ÿè®¡,'wall'ç”¨äºé˜²ç«å¢™
+      filters: stat, wall, slf4j
       driver-class-name: com.mysql.jdbc.Driver
-      #»ù±¾ÊôĞÔ
+      #åŸºæœ¬å±æ€§
       url: jdbc:mysql://127.0.0.1:3306/javaee_test_project?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=GMT%2B8
       username: root
       password: 123
-      #ÅäÖÃ³õÊ¼»¯´óĞ¡/×îĞ¡/×î´ó
+      #é…ç½®åˆå§‹åŒ–å¤§å°/æœ€å°/æœ€å¤§
       initial-size: 1
       min-idle: 1
       max-active: 20
-      #»ñÈ¡Á¬½ÓµÈ´ı³¬Ê±Ê±¼ä
+      #è·å–è¿æ¥ç­‰å¾…è¶…æ—¶æ—¶é—´
       max-wait: 60000
-      #¼ä¸ô¶à¾Ã½øĞĞÒ»´Î¼ì²â£¬¼ì²âĞèÒª¹Ø±ÕµÄ¿ÕÏĞÁ¬½Ó
+      #é—´éš”å¤šä¹…è¿›è¡Œä¸€æ¬¡æ£€æµ‹ï¼Œæ£€æµ‹éœ€è¦å…³é—­çš„ç©ºé—²è¿æ¥
       time-between-eviction-runs-millis: 60000
-      #Ò»¸öÁ¬½ÓÔÚ³ØÖĞ×îĞ¡Éú´æµÄÊ±¼ä
+      #ä¸€ä¸ªè¿æ¥åœ¨æ± ä¸­æœ€å°ç”Ÿå­˜çš„æ—¶é—´
       min-evictable-idle-time-millis: 300000
       validation-query: SELECT 'x'
       test-while-idle: true
       test-on-borrow: false
       test-on-return: false
-      #´ò¿ªPSCache£¬²¢Ö¸¶¨Ã¿¸öÁ¬½ÓÉÏPSCacheµÄ´óĞ¡¡£oracleÉèÎªtrue£¬mysqlÉèÎªfalse¡£·Ö¿â·Ö±í½Ï¶àÍÆ¼öÉèÖÃÎªfalse
+      #æ‰“å¼€PSCacheï¼Œå¹¶æŒ‡å®šæ¯ä¸ªè¿æ¥ä¸ŠPSCacheçš„å¤§å°ã€‚oracleè®¾ä¸ºtrueï¼Œmysqlè®¾ä¸ºfalseã€‚åˆ†åº“åˆ†è¡¨è¾ƒå¤šæ¨èè®¾ç½®ä¸ºfalse
       pool-prepared-statements: false
       max-pool-prepared-statement-per-connection-size: 20
 
-# ·â×°µÄMyBatis
+# å°è£…çš„MyBatis
 mybatis-plus:
-  # Èç¹ûÊÇ·ÅÔÚsrc/main/javaÄ¿Â¼ÏÂ classpath:/com/yourpackage/*/mapper/*Mapper.xml
-  # Èç¹ûÊÇ·ÅÔÚresourceÄ¿Â¼ classpath:/mapper/*Mapper.xml
-  mapper-locations: classpath:mybatis/mappers/*Mapper.xml
-  #ÊµÌåÉ¨Ãè£¬¶à¸öpackageÓÃ¶ººÅ»òÕß·ÖºÅ·Ö¸ô
+  # å¦‚æœæ˜¯æ”¾åœ¨src/main/javaç›®å½•ä¸‹ classpath:/com/yourpackage/*/mapper/*Mapper.xml
+  # å¦‚æœæ˜¯æ”¾åœ¨resourceç›®å½• classpath:/mapper/*Mapper.xml
+  mapper-locations: classpath:mybatis/mapper/*Mapper.xml
+  #å®ä½“æ‰«æï¼Œå¤šä¸ªpackageç”¨é€—å·æˆ–è€…åˆ†å·åˆ†éš”
   typeAliasesPackage: com.actor.javaeetestproject.domain
   global-config:
-    #Ö÷¼üÀàĞÍ  0:"Êı¾İ¿âID×ÔÔö", 1:"ÓÃ»§ÊäÈëID",2:"È«¾ÖÎ¨Ò»ID (Êı×ÖÀàĞÍÎ¨Ò»ID)", 3:"È«¾ÖÎ¨Ò»ID UUID";
+    #ä¸»é”®ç±»å‹  0:"æ•°æ®åº“IDè‡ªå¢", 1:"ç”¨æˆ·è¾“å…¥ID",2:"å…¨å±€å”¯ä¸€ID (æ•°å­—ç±»å‹å”¯ä¸€ID)", 3:"å…¨å±€å”¯ä¸€ID UUID";
     id-type: 0
-    #×Ö¶Î²ßÂÔ 0:"ºöÂÔÅĞ¶Ï",1:"·Ç NULL ÅĞ¶Ï"),2:"·Ç¿ÕÅĞ¶Ï"
+    #å­—æ®µç­–ç•¥ 0:"å¿½ç•¥åˆ¤æ–­",1:"é NULL åˆ¤æ–­"),2:"éç©ºåˆ¤æ–­"
     field-strategy: 1
-    #ÍÕ·åÏÂ»®Ïß×ª»»
+    #é©¼å³°ä¸‹åˆ’çº¿è½¬æ¢
     #db-column-underline: true
-    #Ë¢ĞÂmapper µ÷ÊÔÉñÆ÷
+    #åˆ·æ–°mapper è°ƒè¯•ç¥å™¨
     #refresh-mapper: true
-    #Êı¾İ¿â´óĞ´ÏÂ»®Ïß×ª»»
+    #æ•°æ®åº“å¤§å†™ä¸‹åˆ’çº¿è½¬æ¢
     #capital-mode: true
-    # SequenceĞòÁĞ½Ó¿ÚÊµÏÖÀàÅäÖÃ
+    # Sequenceåºåˆ—æ¥å£å®ç°ç±»é…ç½®
     #key-generator: com.baomidou.mybatisplus.incrementer.OracleKeyGenerator
-    #Âß¼­É¾³ıÅäÖÃ£¨ÏÂÃæ3¸öÅäÖÃ£©
+    #é€»è¾‘åˆ é™¤é…ç½®ï¼ˆä¸‹é¢3ä¸ªé…ç½®ï¼‰
     #logic-delete-value: 1
     #logic-not-delete-value: 0
     #sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
-    #×Ô¶¨ÒåÌî³ä²ßÂÔ½Ó¿ÚÊµÏÖ
+    #è‡ªå®šä¹‰å¡«å……ç­–ç•¥æ¥å£å®ç°
     #meta-object-handler: com.baomidou.springboot.MyMetaObjectHandler
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
-    #ÅäÖÃJdbcTypeForNull
+    #é…ç½®JdbcTypeForNull
     jdbc-type-for-null: 'null'
 
-  # spring data jpaÅäÖÃ
+  # spring data jpaé…ç½®
 #  jpa:
 #    show-sql: true
 #    properties:
 #      hibernate:
 #        format_sql: true
 #    hibernate:
-#      # ÊµÌåÀàÓĞ¸üĞÂÊ±£¬Êı¾İ¿â±í¸üĞÂ
+#      # å®ä½“ç±»æœ‰æ›´æ–°æ—¶ï¼Œæ•°æ®åº“è¡¨æ›´æ–°
 #      ddl-auto: update
 #    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
 
-  # ÏûÏ¢ÖĞ¼ä¼ş
+  # æ¶ˆæ¯ä¸­é—´ä»¶
 #  rabbitmq:
 #    host: 192.168.21.141
 #    port: 5672
@@ -90,14 +90,14 @@ mybatis-plus:
 #        default-requeue-rejected: true
 #    virtual-host: test
 
-  # NoSQLÊı¾İ¿â
+  # NoSQLæ•°æ®åº“
   redis:
     database: 12
     host: localhost
     password:
     port: 6379
 
-    # ÓÃµÄSpring·â×°µÄÁ¬½Ó, Ã»ÓĞÓÃjedis
+    # ç”¨çš„Springå°è£…çš„è¿æ¥, æ²¡æœ‰ç”¨jedis
 #    jedis:
 #      pool:
 #        max-active: 100
@@ -105,13 +105,13 @@ mybatis-plus:
 #        max-idle: 100
 #        min-idle: 1
 
-  # ÎÄ¼şÉÏ´«´óĞ¡ÏŞÖÆ
+  # æ–‡ä»¶ä¸Šä¼ å¤§å°é™åˆ¶
   servlet:
     multipart:
       max-file-size: 20MB
       max-request-size: 20MB
 
-  # Spring Cloud(Î¢·şÎñ¿ò¼Ü) µÄ¸ºÔØ¾ùºâÅäÖÃ
+  # Spring Cloud(å¾®æœåŠ¡æ¡†æ¶) çš„è´Ÿè½½å‡è¡¡é…ç½®
 #feign:
 #  httpclient:
 #    enabled: true
@@ -122,7 +122,7 @@ mybatis-plus:
 #  SocketTimeout: 300000
 #  ConnectTimeout: 30000
 
-# Spring Cloud ÈÛ¶Ï»úÖÆÅäÖÃ(Èç¹ûµ±Ç°·şÎñ³öÏÖÎÊÌâ, ´¥·¢½â¾ö·½°¸, ±ÈÈç: ·µ»Ø¼ÙÊı¾İ, ¸øºó¶Ë·¢ÓÊ¼ş...)
+# Spring Cloud ç†”æ–­æœºåˆ¶é…ç½®(å¦‚æœå½“å‰æœåŠ¡å‡ºç°é—®é¢˜, è§¦å‘è§£å†³æ–¹æ¡ˆ, æ¯”å¦‚: è¿”å›å‡æ•°æ®, ç»™åç«¯å‘é‚®ä»¶...)
 #hystrix:
 #  command:
 #    default:
@@ -135,14 +135,14 @@ mybatis-plus:
 #      forceClosed: true
 #  threadpool:
 #    default:
-#      coreSize: 20 # Ïß³Ì³ØcoreSize
-#      maximumSize: 20 # ÔÚ¿ªÊ¼²»¾Ü¾øµÄ×î´óÏß³ÌÊı£¬HystrixÓĞbug...¼´Ê¹"´ïµ½maxQueueSize"ÇÒ"coreSize<=µ±Ç°size<maximumSize"£¬Ò²²»»áÔö¼ÓÏß³ÌÊı£¨HystrixThreadPool...isQueueSpaceAvailable£©
-#      maxQueueSize: 1024  # ÇëÇóµÈ´ı¶ÓÁĞ£¨Ï÷·å£¬µ«workerÈÔÈ»Ö»ÓĞcoreSize´óĞ¡£©
-#      queueSizeRejectionThreshold: 1024  # ¼´Ê¹Î´´ïµ½maxQueueSizeÒ²½«·¢Éú¾Ü¾øµÄÈËÎª×î´ó¶ÓÁĞ´óĞ¡£¨Ä¬ÈÏÎª5£¬»áÊ¹µÃmaxQueueSize¡°Ê§Ğ§¡±£©
-#      keepAliveTimeMinutes: 1 # ÔÊĞímaximumSizeÉúĞ§Ê±£¬¶¨Òå¡°Ïà¶Ô²»»î¶¯¡±µÄÊ±¼ä£¬³¬¹ıÕâÊ±¼ä£¬ÊÍ·ÅÏß³Ì
-#      allowMaximumSizeToDivergeFromCoreSize: true # ´ËÊôĞÔÔÊĞímaximumSizeµÄÅäÖÃÉúĞ§
+#      coreSize: 20 # çº¿ç¨‹æ± coreSize
+#      maximumSize: 20 # åœ¨å¼€å§‹ä¸æ‹’ç»çš„æœ€å¤§çº¿ç¨‹æ•°ï¼ŒHystrixæœ‰bug...å³ä½¿"è¾¾åˆ°maxQueueSize"ä¸”"coreSize<=å½“å‰size<maximumSize"ï¼Œä¹Ÿä¸ä¼šå¢åŠ çº¿ç¨‹æ•°ï¼ˆHystrixThreadPool...isQueueSpaceAvailableï¼‰
+#      maxQueueSize: 1024  # è¯·æ±‚ç­‰å¾…é˜Ÿåˆ—ï¼ˆå‰Šå³°ï¼Œä½†workerä»ç„¶åªæœ‰coreSizeå¤§å°ï¼‰
+#      queueSizeRejectionThreshold: 1024  # å³ä½¿æœªè¾¾åˆ°maxQueueSizeä¹Ÿå°†å‘ç”Ÿæ‹’ç»çš„äººä¸ºæœ€å¤§é˜Ÿåˆ—å¤§å°ï¼ˆé»˜è®¤ä¸º5ï¼Œä¼šä½¿å¾—maxQueueSizeâ€œå¤±æ•ˆâ€ï¼‰
+#      keepAliveTimeMinutes: 1 # å…è®¸maximumSizeç”Ÿæ•ˆæ—¶ï¼Œå®šä¹‰â€œç›¸å¯¹ä¸æ´»åŠ¨â€çš„æ—¶é—´ï¼Œè¶…è¿‡è¿™æ—¶é—´ï¼Œé‡Šæ”¾çº¿ç¨‹
+#      allowMaximumSizeToDivergeFromCoreSize: true # æ­¤å±æ€§å…è®¸maximumSizeçš„é…ç½®ç”Ÿæ•ˆ
 
-# Spring Cloud ĞÔÄÜÖ¸±ê, ¼à¿Ø
+# Spring Cloud æ€§èƒ½æŒ‡æ ‡, ç›‘æ§
 #management:
 #  endpoints:
 #    web:
@@ -155,7 +155,7 @@ mybatis-plus:
 #    tags:
 #      application: ${spring.application.name}
 
-# Spring Cloud ×¢²áÖĞĞÄ
+# Spring Cloud æ³¨å†Œä¸­å¿ƒ
 #eureka:
 #  instance:
 #    prefer-ip-address: true
@@ -166,7 +166,7 @@ mybatis-plus:
 #      defaultZone: http://192.168.21.141:${eureka.port:8761}/eureka/ #5
 
 
-# ×Ô¶¨ÒåÅäÖÃ, »ñÈ¡·½Ê½: @Value("${excel.max.size} private int excelMaxSize;")
+# è‡ªå®šä¹‰é…ç½®, è·å–æ–¹å¼: @Value("${excel.max.size} private int excelMaxSize;")
 #excel:
 #  max:
 #    size: 20000

@@ -6,7 +6,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.2.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/> <!-- lookup parent from PersonRepository -->
     </parent>
     <groupId>com.actor</groupId>
     <artifactId>javaeetestproject</artifactId>
@@ -19,6 +19,7 @@
     </properties>
 
     <dependencies>
+        <!--一般都要勾选web-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -36,25 +37,6 @@
             </exclusions>
         </dependency>
 
-        <!--集成redis-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-redis</artifactId>
-            <version>1.4.0.RELEASE</version>
-        </dependency>
-
-        <!-- swaggerui相关依赖 -->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.7.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.7.0</version>
-        </dependency>
-
         <!-- mysql数据库驱动 -->
         <dependency>
             <groupId>mysql</groupId>
@@ -65,8 +47,15 @@
         <!--阿里巴巴连接池 Druid -->
         <dependency>
             <groupId>com.alibaba</groupId>
-             <artifactId>druid-spring-boot-starter</artifactId>
-             <version>1.1.21</version>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.21</version>
+        </dependency>
+
+        <!--MyBatis 连接数据库的持久层框架-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.2.0</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/log4j/log4j -->
@@ -88,11 +77,32 @@
             <version>2.8.2</version>
         </dependency>
 
-        <!--MyBatis 连接数据库的持久层框架-->
+        <!-- swaggerui相关依赖 -->
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>2.3</version>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+
+        <!--集成redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-redis</artifactId>
+            <version>1.4.0.RELEASE</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <!--getter/setter/toString；异常处理；I/O流关闭-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+            <scope>provided</scope><!--只在编译阶段生效，不需要打入包中-->
         </dependency>
     </dependencies>
 
