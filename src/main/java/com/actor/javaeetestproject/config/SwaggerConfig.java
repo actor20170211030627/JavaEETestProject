@@ -12,7 +12,10 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * Description: Swagger配置, 访问地址: http://localhost:8080/swagger-ui.html
+ * Description: Swagger配置, 访问地址:
+ *      http://localhost:8080/swagger-ui.html
+ *      http://localhost:8080/doc.html (swagger增强版)
+ *
  * Author     : 李大发
  * Date       : 2020/2/23 on 15:54
  */

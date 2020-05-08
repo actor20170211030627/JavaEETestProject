@@ -34,7 +34,7 @@ public class PersonService {
     }
 
     //删
-    public BaseResult<Integer> deletePersonById(long id){
+    public BaseResult<Integer> deletePersonById(long id) {
 //        return ResponseEntity.ok(animalRepository.deleteById(id));
         int column = personRepository.deleteById(id);//返回影响的行数
         return BaseResult.resultOk(column);
@@ -81,7 +81,7 @@ public class PersonService {
 //
 
     //查
-    public BaseResult<Person> getPersonById(long id){
+    public BaseResult<Person> getPersonById(long id) {
 //        return ResponseEntity.ok(personRepository.selectById(id));
         return BaseResult.resultOk(personRepository.selectById(id));
     }

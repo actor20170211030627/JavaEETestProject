@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * description: 类的描述
@@ -26,24 +27,31 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-    //增
+    //增, @RequestBody: 以json形式上传参数
     @PostMapping("/insert")
     @ApiOperation(value = "增加Person")
     public BaseResult<Integer> insert(@RequestBody PersonDto personDto) {
         return personService.insert(personDto);
     }
 
-    //删
+    //删, @RequestParam: 传入的值key = id, 必传
     @DeleteMapping("/deleteById")
     @ApiOperation("根据id删除Person")
-    public BaseResult<Integer> deletePersonById(long id) {
-        return personService.deletePersonById(id);
+    public BaseResult<Integer> deletePersonById(@RequestParam(value = "id", required = true) long id111) {
+        return personService.deletePersonById(id111);
     }
 
     //改
     @PostMapping("/update")
     @ApiOperation("更新Person")
     public BaseResult<Integer> updatePerson(@RequestBody Person person) {
+        return personService.updatePerson(person);
+    }
+
+    //改, 头像和参数一起上传
+    @PostMapping("/update_head")
+    @ApiOperation("更新头像")
+    public BaseResult<Integer> updatePersonHead(@RequestParam("file") MultipartFile files, Person person) {
         return personService.updatePerson(person);
     }
 
