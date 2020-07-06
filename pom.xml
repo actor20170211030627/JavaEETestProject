@@ -38,6 +38,7 @@
         </dependency>
 
         <!-- mysql数据库驱动 -->
+        <!--5.1.39有漏洞, dependabot[bot]*在github上更新版本到: 8.0.16-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -72,6 +73,8 @@
             <artifactId>log4j-api</artifactId>
             <version>2.8.2</version>
         </dependency>
+
+        <!--2.8.2有漏洞, dependabot[bot]*在github上更新版本到: 2.12.2-->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>

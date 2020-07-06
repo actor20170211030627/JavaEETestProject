@@ -1,4 +1,4 @@
-#从命名: from application.properties to application.yml
+#重命名: from application.properties to application.yml
 spring:
   main:
     allow-bean-definition-overriding: true
