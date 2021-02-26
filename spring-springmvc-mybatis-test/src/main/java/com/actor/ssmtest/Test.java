@@ -15,7 +15,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Test {
 
     public static void main(String[] args) {
-        System.out.println(11111);
         ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 //        UserServiceImpl userServiceImpl = (UserServiceImpl) ac.getBean("userService");
         UserServiceImpl userServiceImpl = ac.getBean("userService", UserServiceImpl.class);

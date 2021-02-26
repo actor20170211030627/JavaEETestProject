@@ -18,21 +18,14 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <!--依赖-->
     <dependencies>
-        <!-- mysql数据库驱动 -->
-        <!--5.1.39有漏洞, dependabot[bot]*在github上更新版本到: 8.0.16-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.16</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/log4j/log4j -->
         <!--log4j >= 1.2, <= 1.2.27 有漏洞: CVE-2019-17571-->
         <!--<dependency>-->
-        <!--<groupId>log4j</groupId>-->
-        <!--<artifactId>log4j</artifactId>-->
-        <!--<version>1.2.17</version>-->
+            <!--<groupId>log4j</groupId>-->
+            <!--<artifactId>log4j</artifactId>-->
+            <!--<version>1.2.17</version>-->
         <!--</dependency>-->
         <!--2.8.2版本修复了漏洞-->
         <dependency>
