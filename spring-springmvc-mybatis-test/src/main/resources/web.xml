@@ -8,8 +8,8 @@
     <context-param>
         <!-- 固定写法 -->
         <param-name>contextConfigLocation</param-name>
-        <!-- 如果写在src目录下: classpath:applicationContext.xml -->
-        <param-value>/applicationContext.xml</param-value>
+        <!-- 如果写在src目录下: classpath:_1_TEST_IOC_DI.xml -->
+        <param-value>/_1_TEST_IOC_DI.xml</param-value>
     </context-param>
 
     <!-- 可以让spring容器随项目的启动而创建,随项目的关闭而销毁 -->

@@ -30,7 +30,7 @@ public class LinkMan {
     private String lkm_position;
 
     //表达多对一关系
-    private Customer customer;
+    private Customer1 customer;
 
     //----------------------------------------------
     //不与数据库中的列对应,只为了接收表单参数
@@ -45,11 +45,11 @@ public class LinkMan {
         this.cust_id = cust_id;
     }
 
-    public Customer getCustomer() {
+    public Customer1 getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(Customer1 customer) {
         this.customer = customer;
     }
 

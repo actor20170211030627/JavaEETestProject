@@ -1,9 +1,8 @@
 package com.actor.ssmtest.service.impl;
 
 import com.actor.ssmtest.dao.CustomerDao;
-import com.actor.ssmtest.domain.Customer;
+import com.actor.ssmtest.domain.Customer1;
 import com.actor.ssmtest.service.CustomerService;
-import com.actor.ssmtest.utils.HibernateUtils;
 
 import java.util.List;
 
@@ -19,8 +18,12 @@ public class CustomerServiceImpl implements CustomerService {
         this.customerDao = customerDao;
     }
 
+    public CustomerDao getCustomerDao() {
+        return customerDao;
+    }
+
     @Override
-    public void save(Customer c) {
+    public void save(Customer1 c) {
 //        Session session = HibernateUtils.getCurrentSession();
 //        //打开事务
 //        Transaction tx = session.beginTransaction();
@@ -36,7 +39,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<Customer> getAll() {
+    public List<Customer1> getAll() {
 //        Session session = HibernateUtils.getCurrentSession();
 //        //打开事务
 //        Transaction tx = session.beginTransaction();

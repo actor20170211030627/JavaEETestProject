@@ -1,7 +1,5 @@
 package com.actor.ssmtest.web.action;
 
-import java.util.List;
-
 //import javax.servlet.ServletContext;
 
 //import org.apache.commons.lang3.StringUtils;
@@ -10,9 +8,7 @@ import java.util.List;
 //import org.hibernate.criterion.Restrictions;
 //import org.springframework.context.ApplicationContext;
 //import org.springframework.context.support.ClassPathXmlApplicationContext;
-import com.actor.ssmtest.domain.Customer;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
+
 
 //import com.opensymphony.xwork2.ActionContext;
 //import com.opensymphony.xwork2.ActionSupport;

@@ -2,10 +2,8 @@ package com.actor.ssmtest.service.impl;
 
 import com.actor.ssmtest.dao.CustomerDao;
 import com.actor.ssmtest.dao.LinkManDao;
-import com.actor.ssmtest.domain.Customer;
 import com.actor.ssmtest.domain.LinkMan;
 import com.actor.ssmtest.service.LinkManService;
-import com.actor.ssmtest.utils.HibernateUtils;
 
 public class LinkManServiceImpl implements LinkManService {
 
