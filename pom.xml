@@ -16,8 +16,8 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
 
     <!--依赖-->
@@ -36,7 +36,7 @@
             <version>2.8.2</version>
         </dependency>
 
-        <!--2.8.2有漏洞, dependabot[bot]*在github上更新版本到: 2.12.2-->
+        <!-- Github修复漏洞: 2.8.2有漏洞, Bump log4j-core from 2.8.2 to 2.13.2 -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>

@@ -3,7 +3,6 @@ package com.actor.ssmtest;
 import com.actor.ssmtest.config.SpringConfiguration;
 import com.actor.ssmtest.controller.AccountController;
 import com.actor.ssmtest.domain.Account;
-import com.actor.ssmtest.service.AccountService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +24,6 @@ public class _4_Test_JUnit {
 
     @Autowired
     private AccountController accountController;
-
-    @Autowired
-    private AccountService accountService;
 
     /**
      * https://www.bilibili.com/video/BV1mE411X7yp?p=120

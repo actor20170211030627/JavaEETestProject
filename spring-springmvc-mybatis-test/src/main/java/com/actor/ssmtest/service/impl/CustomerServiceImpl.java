@@ -3,8 +3,6 @@ package com.actor.ssmtest.service.impl;
 import com.actor.ssmtest.dao.CustomerDao;
 import com.actor.ssmtest.domain.Customer1;
 import com.actor.ssmtest.service.CustomerService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

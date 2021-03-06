@@ -26,4 +26,7 @@ public interface AccountService {
 
     //根据id删除
     void deleteAccount(Integer accountId);
+
+    //转钱
+    void transferMoney(String from, String to, float money, boolean exception);
 }

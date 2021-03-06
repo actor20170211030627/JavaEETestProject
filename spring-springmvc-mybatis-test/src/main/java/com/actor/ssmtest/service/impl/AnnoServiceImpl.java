@@ -43,4 +43,19 @@ public class AnnoServiceImpl implements AccountService {
     public void deleteAccount(Integer accountId) {
         accountDao.deleteAccount(accountId);
     }
+
+    //转钱
+    @Override
+    public void transferMoney(String from, String to, float money, boolean exception) {
+        Account accountFrom = findAccountByName(from);
+        Account accountTo = findAccountByName(to);
+        accountFrom.setMoney(accountFrom.getMoney() - money);
+        accountTo.setMoney(accountTo.getMoney() + money);
+        updateAccount(accountFrom);
+        //测试异常后sql事务
+        if (exception) {
+            int i = 1 / 0;
+        }
+        updateAccount(accountTo);
+    }
 }

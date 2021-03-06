@@ -1,16 +1,8 @@
 package com.actor.ssmtest.config;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
-import org.apache.commons.dbutils.QueryRunner;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.Scope;
-
-import javax.sql.DataSource;
-import java.beans.PropertyVetoException;
 
 //细节: 当该配置类作为 AnnotationConfigApplicationContext 对象创建的参数时, @Configuration 该注解可以不写
 //@Configuration

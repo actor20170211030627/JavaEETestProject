@@ -23,8 +23,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- mysql数据库驱动 -->
-        <!--5.1.39有漏洞, dependabot[bot]*在github上更新版本到: 8.0.16-->
+        <!-- mysql数据库驱动, Github修复漏洞: Bump mysql-connector-java from 5.1.39 to 8.0.16 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

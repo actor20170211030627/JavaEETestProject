@@ -54,11 +54,8 @@ public class _1_Test_IOC_DI {
         System.out.printf("ApplicationContext 获取的对象: %s\n", customerDao);
 
 
-        //spring-core
-        Resource resource = new ClassPathResource("_1_TEST_IOC_DI.xml");
-        //spring-beans
-        BeanFactory factory = new XmlBeanFactory(resource);
-        //UserServiceImpl usi = (UserServiceImpl) factory.getBean("userService");//获取自己创建的服务
+        Resource resource = new ClassPathResource("_1_TEST_IOC_DI.xml");        //spring-core
+        BeanFactory factory = new XmlBeanFactory(resource);                     //spring-beans
         CustomerServiceImpl customerService2 = factory.getBean("customerService", CustomerServiceImpl.class);
         System.out.printf("BeanFactory 获取的对象: %s\n", customerService2);
 
