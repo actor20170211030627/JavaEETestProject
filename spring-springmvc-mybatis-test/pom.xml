@@ -19,6 +19,8 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -49,7 +51,7 @@
             <version>5.0.2.RELEASE</version>
         </dependency>
 
-        <!--jackson-->
+        <!-- jackson -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -57,25 +59,39 @@
             <scope>compile</scope>
         </dependency>
 
-        <!--数据库驱动-->
+        <!-- 数据库驱动 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.21</version>
         </dependency>
 
-        <!--c3p0连接池-->
+        <!-- c3p0连接池 -->
         <dependency>
             <groupId>c3p0</groupId>
             <artifactId>c3p0</artifactId>
             <version>0.9.1.2</version>
         </dependency>
 
-        <!--数据库工具类-->
+        <!-- 数据库工具类 -->
         <dependency>
             <groupId>commons-dbutils</groupId>
             <artifactId>commons-dbutils</artifactId>
             <version>1.7</version>
+        </dependency>
+
+        <!-- Test -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.0.2.RELEASE</version><!--版本要和spring主要版本一致, 如果是5.3.1 会报错-->
+        </dependency>
+        <!-- 注意: 如果 spring 5.x 版本的时候, 要求junit的jar必须是 4.12+, 否则 测试方法 会报错 -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

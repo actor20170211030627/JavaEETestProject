@@ -2,7 +2,7 @@ package com.actor.ssmtest.web.action;
 
 //import javax.servlet.ServletContext;
 
-import com.actor.ssmtest.domain.User;
+//import com.actor.ssmtest.domain.User;
 //import org.apache.struts2.ServletActionContext;
 //import org.springframework.web.context.WebApplicationContext;
 //import org.springframework.web.context.support.WebApplicationContextUtils;

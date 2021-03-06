@@ -2,6 +2,7 @@ package com.actor.ssmtest;
 
 import com.actor.ssmtest.controller.AccountController;
 import com.actor.ssmtest.domain.Account;
+import com.actor.ssmtest.domain.Customer3Anno;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -46,6 +47,10 @@ public class _2_Test_IOC_DI_Anno {
          *      @Qualifier("accountDao1")        //查找 id=accountDao1 的Dao(当有多个Dao的时候)
          *      private IAccountDao accountDao;
          *
+         *      //在方法上指定DataSource, 参数里可以单独使用.
+         *      public QueryRunner createQueryRunner(@Qualifier(value = "dataSource2") DataSource dataSource) {
+         *      }
+         *
          * @see javax.annotation.Resource(name = "")
          *      可以自动注入, name属性指定bean的id, 例:
          *      @Resource(name = "accountDao1")
@@ -59,7 +64,7 @@ public class _2_Test_IOC_DI_Anno {
          *
          * https://www.bilibili.com/video/BV1mE411X7yp?p=109
          * @see org.springframework.context.annotation.Scope(value = "")
-         *      @Scope: 作用域范围, 写在类/方法上
+         *      @Scope: 作用域范围, 写在类/方法上(作用于方法返回值)
          *      value取值:
          *          1.singleton     : 单例(默认值), spring容器中只包含1份bean的实例
          *          2.prototype     : 多例
@@ -69,12 +74,21 @@ public class _2_Test_IOC_DI_Anno {
          *
          * @see javax.annotation.PostConstruct  用于指定初始化方法, init-method
          * @see javax.annotation.PreDestroy     用于指定销毁方法, destroy-method
+         *
+         *
+         * https://www.bilibili.com/video/BV1mE411X7yp?p=110
+         * https://www.bilibili.com/video/BV1mE411X7yp?p=111
+         * https://www.bilibili.com/video/BV1mE411X7yp?p=112
+         * https://www.bilibili.com/video/BV1mE411X7yp?p=113
          */
         ApplicationContext ac = new ClassPathXmlApplicationContext("_2_TEST_IOC_DI_Anno.xml");
 
+        Customer3Anno customer3Anno = ac.getBean("customer3Anno", Customer3Anno.class);
+        System.out.printf("@Component 注解方式注入 获取的对象: %s\n", customer3Anno);
+
         //注解注入示例
         AccountController accountController = ac.getBean("accountController", AccountController.class);
-        System.out.printf("注解方式注入 获取的对象: %s\n", accountController);
+        System.out.printf("@Controller 注解方式注入 获取的对象: %s\n", accountController);
         Account account = accountController.findByName();
         System.out.println(account);
     }

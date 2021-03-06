@@ -9,21 +9,21 @@
     <!-- 告知spring在创建容器时要扫描的包, 会扫描这个包下所有的注解
          配置所需要的标签是一个名为 context 命名空间和约束中:
          xmlns:context="http://www.springframework.org/schema/context" -->
-    <context:component-scan base-package="com.actor.ssmtest"></context:component-scan>
+    <context:component-scan base-package="com.actor.ssmtest"/>
 
 
     <!--配置QueryRunner, 不能是单例对象-->
     <bean id="runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
         <!--注入数据-->
-        <constructor-arg name="ds" ref="dataSource"></constructor-arg>
+        <constructor-arg name="ds" ref="dataSource"/>
     </bean>
 
     <!--配置数据源-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <!--配置数据库的必备信息-->
-        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/spring_boot_test?characterEncoding=utf-8&amp;serverTimezone=GMT%2B8"></property>
-        <property name="user" value="root"></property>
-        <property name="password" value="123456"></property>
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/spring_boot_test?characterEncoding=utf-8&amp;serverTimezone=GMT%2B8"/>
+        <property name="user" value="root"/>
+        <property name="password" value="123456"/>
     </bean>
 </beans>

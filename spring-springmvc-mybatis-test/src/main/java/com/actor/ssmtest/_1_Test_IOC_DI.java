@@ -4,7 +4,6 @@ import com.actor.ssmtest.dao.CustomerDao;
 import com.actor.ssmtest.domain.Customer1;
 import com.actor.ssmtest.domain.Customer2;
 import com.actor.ssmtest.service.impl.CustomerServiceImpl;
-import com.actor.ssmtest.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
@@ -60,8 +59,8 @@ public class _1_Test_IOC_DI {
         //spring-beans
         BeanFactory factory = new XmlBeanFactory(resource);
         //UserServiceImpl usi = (UserServiceImpl) factory.getBean("userService");//获取自己创建的服务
-        UserServiceImpl usi = factory.getBean("userService", UserServiceImpl.class);
-        System.out.printf("BeanFactory 获取的对象: %s\n", usi);
+        CustomerServiceImpl customerService2 = factory.getBean("customerService", CustomerServiceImpl.class);
+        System.out.printf("BeanFactory 获取的对象: %s\n", customerService2);
 
 
         //构造函数注入示例
