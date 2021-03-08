@@ -96,5 +96,13 @@
             <version>4.13.1</version>
             <scope>compile</scope>
         </dependency>
+
+
+        <!-- AOP切面编程 -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.6</version>
+        </dependency>
     </dependencies>
 </project>
