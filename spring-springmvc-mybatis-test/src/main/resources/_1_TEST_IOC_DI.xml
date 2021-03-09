@@ -111,6 +111,13 @@
     </bean>
 
 
+
+    <!-- Factory 方式注入(不能是static方法?) -->
+<!--    <bean id="abc" factory-bean="_1_Test_IOC_DI" factory-method="getAccount"/>-->
+<!--    <bean id="_1_Test_IOC_DI" class="com.actor.ssmtest._1_Test_IOC_DI"/>-->
+
+
+
     <!-- 配置Service -->
     <bean name="customerService" class="com.actor.ssmtest.service.impl.CustomerServiceImpl">
         <property name="customerDao" ref="customerDao"/>

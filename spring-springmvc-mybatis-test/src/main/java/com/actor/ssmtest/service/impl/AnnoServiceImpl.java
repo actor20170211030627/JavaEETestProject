@@ -44,7 +44,7 @@ public class AnnoServiceImpl implements AccountService {
         accountDao.deleteAccount(accountId);
     }
 
-    //转钱
+    //转账, 转钱
     @Override
     public void transferMoney(String from, String to, float money, boolean exception) {
         Account accountFrom = findAccountByName(from);

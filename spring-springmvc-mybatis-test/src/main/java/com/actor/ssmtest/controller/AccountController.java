@@ -34,7 +34,7 @@ public class AccountController {
     }
 
     /**
-     * 转钱
+     * 转账, 转钱
      * @param from 转出人
      * @param to 转入人
      * @param money 转多少钱

@@ -11,8 +11,8 @@ import org.springframework.stereotype.Repository;
 import java.sql.SQLException;
 import java.util.List;
 
-@Repository/*("accountDaoImpl")*/
-public class AccountDaoImpl implements AccountDao {
+@Repository/*("accountDaoImpl_Dbutils")*/
+public class AccountDaoImpl_Dbutils implements AccountDao {
 
     @Autowired
     private QueryRunner runner;

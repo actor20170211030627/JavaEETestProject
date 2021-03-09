@@ -1,6 +1,7 @@
 package com.actor.ssmtest;
 
 import com.actor.ssmtest.dao.CustomerDao;
+import com.actor.ssmtest.domain.Account;
 import com.actor.ssmtest.domain.Customer1;
 import com.actor.ssmtest.domain.Customer2;
 import com.actor.ssmtest.service.impl.CustomerServiceImpl;
@@ -71,4 +72,8 @@ public class _1_Test_IOC_DI {
         //容器销毁
         ((ClassPathXmlApplicationContext) ac).close();//子类对象有这个方法
     }
+
+//    public /*static*/ Account getAccount() {
+//        return null;
+//    }
 }

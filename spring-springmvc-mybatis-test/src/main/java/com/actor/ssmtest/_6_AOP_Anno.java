@@ -21,6 +21,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  *      @see org.aspectj.lang.annotation.AfterReturning
  *      @see org.aspectj.lang.annotation.AfterThrowing
  *      @see org.aspectj.lang.annotation.After
+ *      高版本好像已经修复了这个通知, 例5.3.3???
+ *
  * 应该使用环绕通知:
  *      @see org.aspectj.lang.annotation.Around
  *
@@ -28,6 +30,16 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  *
  * https://www.bilibili.com/video/BV1mE411X7yp?p=141
  *  总结和作业安排
+ *
+ * 作业解答(下方3个视频链接):
+ * https://www.bilibili.com/video/BV1mE411X7yp?p=148
+ *  基于XML的AOP实现事务控制
+ *
+ * https://www.bilibili.com/video/BV1mE411X7yp?p=149
+ *  基于注解的AOP实现事务控制及问题分析_上
+ *
+ * https://www.bilibili.com/video/BV1mE411X7yp?p=150
+ *  基于注解的AOP实现事务控制及问题分析_下
  *
  * @author : 李大发
  * date       : 2021/2/25 on 16
