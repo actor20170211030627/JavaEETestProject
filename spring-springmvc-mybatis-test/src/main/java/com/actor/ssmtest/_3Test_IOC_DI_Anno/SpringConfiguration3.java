@@ -1,4 +1,4 @@
-package com.actor.ssmtest.config;
+package com.actor.ssmtest._3Test_IOC_DI_Anno;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
@@ -10,9 +10,9 @@ import org.springframework.context.annotation.PropertySource;
 @ComponentScan(basePackages = {"com.actor.ssmtest"/*, "config"*/})
 
 //JdbcConfig.class 是 SpringConfiguration 的子配置类, 添加了这个@Import 注解后, JdbcConfig 不用再添加 @Configuration 注解
-@Import(value = {JdbcConfig.class})
+@Import(value = {JdbcConfig3.class})
 
 @PropertySource(value = "classpath:application.properties") //classpath: resources 类路径
-public class SpringConfiguration {
+public class SpringConfiguration3 {
 
 }

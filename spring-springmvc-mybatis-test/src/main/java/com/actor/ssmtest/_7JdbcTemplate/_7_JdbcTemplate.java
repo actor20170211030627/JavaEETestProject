@@ -1,6 +1,5 @@
-package com.actor.ssmtest;
+package com.actor.ssmtest._7JdbcTemplate;
 
-import com.actor.ssmtest.dao.impl.AccountDaoImpl_JdbcTemplate;
 import com.actor.ssmtest.domain.Account;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -62,7 +61,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  *
  *  2.继承{@link JdbcDaoSupport}(感觉麻烦, 不推荐)
  *      2.1.在xml中配置相应dao
- *          <bean id="accountDao" class="com.actor.ssmtest.dao.impl.AccountDaoImpl_JdbcTemplate">
+ *          <bean id="accountDao" class="com.actor.ssmtest._7JdbcTemplate.AccountDaoImpl_JdbcTemplate">
  *              <property name="dataSource" ref="dataSource"/>
  *          </bean>
  *      2.2.在 accountDao 中调用父类 {@link AccountDaoImpl_JdbcTemplate#getJdbcTemplate()}方法,

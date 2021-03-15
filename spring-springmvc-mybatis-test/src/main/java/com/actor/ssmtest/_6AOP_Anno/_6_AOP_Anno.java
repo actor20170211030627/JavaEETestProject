@@ -1,7 +1,6 @@
-package com.actor.ssmtest;
+package com.actor.ssmtest._6AOP_Anno;
 
-import com.actor.ssmtest.config.SpringConfiguration_AOP_Anno;
-import com.actor.ssmtest.domain._5_Aop_Bean;
+import com.actor.ssmtest._5AOP_Xml._5_Aop_Bean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -26,7 +25,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * 应该使用环绕通知:
  *      @see org.aspectj.lang.annotation.Around
  *
- * 具体见: {@link com.actor.ssmtest.utils.Anno_Logger_Anno}
+ * 具体见: {@link Anno_Logger_Anno}
  *
  * https://www.bilibili.com/video/BV1mE411X7yp?p=141
  *  总结和作业安排

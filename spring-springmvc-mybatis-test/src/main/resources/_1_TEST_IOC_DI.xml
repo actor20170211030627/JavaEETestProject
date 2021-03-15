@@ -50,7 +50,7 @@
         1.优势: 获取bean对象时, 注入数据是必须的操作, 否则对象无法创建
         2.弊端: 改变了bean对象的实例化方式, 使我们在创建对象时, 如果用不到这些数据, 也必须提供.
         -->
-    <bean id="customer1" class="com.actor.ssmtest.domain.Customer1">
+    <bean id="customer1" class="com.actor.ssmtest._1Test_IOC_DI.Customer1">
         <constructor-arg name="name" value="张三"/>
         <constructor-arg name="age" value="23"/>
         <constructor-arg name="birthday" ref="dateNow"/>
@@ -67,7 +67,7 @@
         1.优势: 创建对象时没有明确的限制, 可直接使用默认构造函数
         2.弊端: 如果有某个成员必须有值, 则获取对象时有可能set方法没有执行.
         -->
-    <bean id="customer2" class="com.actor.ssmtest.domain.Customer2">
+    <bean id="customer2" class="com.actor.ssmtest._1Test_IOC_DI.Customer2">
         <property name="userName" value="李四"/>
         <property name="age" value="24"/>
         <property name="birthday" ref="dateNow"/>
@@ -114,7 +114,7 @@
 
     <!-- Factory 方式注入(不能是static方法?) -->
 <!--    <bean id="abc" factory-bean="_1_Test_IOC_DI" factory-method="getAccount"/>-->
-<!--    <bean id="_1_Test_IOC_DI" class="com.actor.ssmtest._1_Test_IOC_DI"/>-->
+<!--    <bean id="_1_Test_IOC_DI" class="com.actor.ssmtest._1Test_IOC_DI._1_Test_IOC_DI"/>-->
 
 
 

@@ -1,4 +1,4 @@
-package com.actor.ssmtest.domain;
+package com.actor.ssmtest._1Test_IOC_DI;
 
 import com.actor.ssmtest.utils.JacksonUtils;
 

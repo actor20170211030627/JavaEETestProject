@@ -1,6 +1,6 @@
-package com.actor.ssmtest;
+package com.actor.ssmtest._4Test_JUnit;
 
-import com.actor.ssmtest.config.SpringConfiguration;
+import com.actor.ssmtest._3Test_IOC_DI_Anno.SpringConfiguration3;
 import com.actor.ssmtest.controller.AccountController;
 import com.actor.ssmtest.domain.Account;
 import org.junit.Test;
@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = SpringConfiguration.class)
+@ContextConfiguration(classes = SpringConfiguration3.class)
 public class _4_Test_JUnit {
 
     @Autowired

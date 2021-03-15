@@ -1,4 +1,4 @@
-package com.actor.ssmtest.dao.impl;
+package com.actor.ssmtest._8PlatformTransactionManager_Xml;
 
 import com.actor.ssmtest.domain.Account;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,33 +12,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-//@Repository
-public class AccountDaoImpl_JdbcTemplate extends JdbcDaoSupport {
+public class AccountDaoImpl_TransactionManager {
 
     @Autowired
     private JdbcTemplate jt;
-
-    //1.通过代码获取 JdbcTemplate(不推荐)
-    @Deprecated
-    private JdbcTemplate getJt() {
-        //1. Spring 自带数据源
-        DriverManagerDataSource ds = new DriverManagerDataSource();
-        ds.setDriverClassName("com.mysql.jdbc.Driver");
-        ds.setUrl("jdbc:mysql://localhost:3306/spring_boot_test?characterEncoding=utf-8&serverTimezone=GMT%2B8");
-        ds.setUsername("root");
-        ds.setPassword("123456");
-        JdbcTemplate jt = new JdbcTemplate();
-        jt.setDataSource(ds);
-        return jt;
-    }
-
-    /**
-     * 0.新增,   execute: 执行操作
-     */
-    public void execute() {
-        jt.execute("insert into account(name,money) values ('ddd', 1000)");
-        System.out.println("操作完成!");
-    }
 
     /**
      * 1.新增
@@ -65,17 +42,6 @@ public class AccountDaoImpl_JdbcTemplate extends JdbcDaoSupport {
     }
 
     /**
-     * 4.查询所有(自定义 RowMapper)
-     */
-    public void findAllCustom(Float money) {
-        List<Account> accountsCustom = jt.query("select * from account where money >= ?", new AccountRowMapper(), money);
-        for (Account account : accountsCustom) {
-            System.out.println(account);
-        }
-        System.out.println("操作完成!");
-    }
-
-    /**
      * 5.查询 "一个/所有" (Spring 自带 BeanPropertyRowMapper)
      */
     public void findAll(Float money) {
@@ -98,6 +64,12 @@ public class AccountDaoImpl_JdbcTemplate extends JdbcDaoSupport {
         return jt.queryForObject("select * from account where id = ?", new BeanPropertyRowMapper<>(Account.class), accountId);
     }
 
+    //根据名字查询(如果有多个结果, 抛异常)
+    public Account findAccountByName(String name) {
+        name = "%" + name + "%";
+        return jt.queryForObject("select * from account where name like ?", new BeanPropertyRowMapper<>(Account.class), name);
+    }
+
     /**
      * 7.查询返回一行一列(使用聚合函数, 但不加group by子句)
      */
@@ -107,28 +79,24 @@ public class AccountDaoImpl_JdbcTemplate extends JdbcDaoSupport {
         System.out.println("操作完成!");
     }
 
-
-    //定义 Account 的封装策略
-    static class AccountRowMapper implements RowMapper<Account> {
-        //把结果集中的数据封装到 Account 中, 然后spring把每个Account 加到集合中
-        @Override
-        public Account mapRow(ResultSet rs, int rowNum) throws SQLException {
-            Account account = new Account();
-            account.setId(rs.getInt("id"));
-            account.setName(rs.getString("name"));
-            account.setMoney(rs.getFloat("money"));
-            return account;
-        }
-    }
-
-
-
     /**
-     * https://www.bilibili.com/video/BV1mE411X7yp?p=147
-     * @see org.springframework.jdbc.core.support.JdbcDaoSupport 的使用以及Dao的两种编写方式
-     * 1.Xml配置的方式: 见xml配置文件
+     * 转账, 转钱
+     * @param from
+     * @param to
+     * @param money
+     * @param exception
      */
-    public Account findAccountById(Integer accountId) {
-        return getJdbcTemplate().queryForObject("select * from account where id = ?", new BeanPropertyRowMapper<>(Account.class), accountId);
+    public void transferMoney(String from, String to, float money, boolean exception) {
+        Account accountFrom = findAccountByName(from);
+        Account accountTo = findAccountByName(to);
+        accountFrom.setMoney(accountFrom.getMoney() - money);
+        accountTo.setMoney(accountTo.getMoney() + money);
+
+        update(accountFrom);
+        //测试异常后sql事务
+        if (exception) {
+            int i = 1 / 0;
+        }
+        update(accountTo);
     }
 }

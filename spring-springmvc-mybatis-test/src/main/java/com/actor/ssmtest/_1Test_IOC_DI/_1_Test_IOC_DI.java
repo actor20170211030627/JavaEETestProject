@@ -1,9 +1,6 @@
-package com.actor.ssmtest;
+package com.actor.ssmtest._1Test_IOC_DI;
 
 import com.actor.ssmtest.dao.CustomerDao;
-import com.actor.ssmtest.domain.Account;
-import com.actor.ssmtest.domain.Customer1;
-import com.actor.ssmtest.domain.Customer2;
 import com.actor.ssmtest.service.impl.CustomerServiceImpl;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;

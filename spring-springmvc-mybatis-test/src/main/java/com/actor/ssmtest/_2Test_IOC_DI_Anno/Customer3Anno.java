@@ -1,4 +1,4 @@
-package com.actor.ssmtest.domain;
+package com.actor.ssmtest._2Test_IOC_DI_Anno;
 
 import com.actor.ssmtest.utils.JacksonUtils;
 import org.springframework.stereotype.Component;

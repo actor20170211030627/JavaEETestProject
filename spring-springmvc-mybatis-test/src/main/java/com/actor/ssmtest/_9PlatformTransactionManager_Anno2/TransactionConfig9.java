@@ -1,4 +1,4 @@
-package com.actor.ssmtest.config;
+package com.actor.ssmtest._9PlatformTransactionManager_Anno2;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 /**
  * 和事务相关的配置类
  */
-public class TransactionConfig {
+public class TransactionConfig9 {
 
     //创建 事务管理器对象, @Bean 加入容器
     @Bean(name = "transactionManager")

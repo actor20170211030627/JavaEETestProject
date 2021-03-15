@@ -1,19 +1,7 @@
-package com.actor.ssmtest;
+package com.actor.ssmtest._5AOP_Xml;
 
-import com.actor.ssmtest.config.SpringConfiguration;
-import com.actor.ssmtest.controller.AccountController;
-import com.actor.ssmtest.domain.Account;
-import com.actor.ssmtest.domain._5_Aop_Bean;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.web.context.support.XmlWebApplicationContext;
-
-import java.util.List;
 
 /**
  * description: AOP: Aspect Oriented Programming(面向切面编程)

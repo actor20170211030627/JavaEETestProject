@@ -1,4 +1,4 @@
-package com.actor.ssmtest.domain;
+package com.actor.ssmtest._5AOP_Xml;
 
 import org.springframework.stereotype.Component;
 

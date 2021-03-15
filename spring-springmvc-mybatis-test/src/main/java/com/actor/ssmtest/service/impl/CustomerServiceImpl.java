@@ -1,7 +1,7 @@
 package com.actor.ssmtest.service.impl;
 
 import com.actor.ssmtest.dao.CustomerDao;
-import com.actor.ssmtest.domain.Customer1;
+import com.actor.ssmtest._1Test_IOC_DI.Customer1;
 import com.actor.ssmtest.service.CustomerService;
 
 import java.util.List;

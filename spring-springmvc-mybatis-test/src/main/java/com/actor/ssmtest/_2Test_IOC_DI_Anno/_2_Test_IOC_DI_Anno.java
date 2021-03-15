@@ -1,8 +1,7 @@
-package com.actor.ssmtest;
+package com.actor.ssmtest._2Test_IOC_DI_Anno;
 
 import com.actor.ssmtest.controller.AccountController;
 import com.actor.ssmtest.domain.Account;
-import com.actor.ssmtest.domain.Customer3Anno;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

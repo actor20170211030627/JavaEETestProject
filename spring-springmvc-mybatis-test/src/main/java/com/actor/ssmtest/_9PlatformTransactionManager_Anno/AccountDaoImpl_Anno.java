@@ -1,13 +1,15 @@
-package com.actor.ssmtest.dao.impl;
+package com.actor.ssmtest._9PlatformTransactionManager_Anno;
 
 import com.actor.ssmtest.domain.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public class AccountDaoImpl_TransactionManager_Anno {
+@Repository
+public class AccountDaoImpl_Anno {
 
     @Autowired
     private JdbcTemplate jt;

@@ -1,20 +1,16 @@
-package com.actor.ssmtest.service.impl;
+package com.actor.ssmtest._9PlatformTransactionManager_Anno;
 
-import com.actor.ssmtest.dao.AnnoService_TransactionManager_Anno;
-import com.actor.ssmtest.dao.impl.AccountDaoImpl_TransactionManager_Anno;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+@Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true /*, ...*/) //只读型事务的配置(查询)
-public class AnnoServiceImpl_TransactionManager_Anno implements AnnoService_TransactionManager_Anno {
+public class AnnoServiceImpl_Anno {
 
     @Autowired
-    private AccountDaoImpl_TransactionManager_Anno accountDao;
-
-    public void setAccountDao(AccountDaoImpl_TransactionManager_Anno accountDao) {
-        this.accountDao = accountDao;
-    }
+    private AccountDaoImpl_Anno accountDao;
 
     public void findAll(Float money) {
         accountDao.findAll(money);

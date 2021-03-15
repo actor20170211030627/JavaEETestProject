@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
-           http://www.springframework.org/schema/aop
-            http://www.springframework.org/schema/aop/spring-aop.xsd
-             http://www.springframework.org/schema/tx
-              https://www.springframework.org/schema/tx/spring-tx.xsd
-               http://www.springframework.org/schema/context
-                http://www.springframework.org/schema/context/spring-context.xsd">
+         http://www.springframework.org/schema/tx
+          https://www.springframework.org/schema/tx/spring-tx.xsd
+           http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- 配置spring创建容器时要扫描的包 -->
-<!--    <context:component-scan base-package="com.actor.ssmtest"></context:component-scan>-->
-    <bean id="accountDao" class="com.actor.ssmtest.dao.impl.AccountDaoImpl_TransactionManager_Anno"/>
-    <bean id="accountService" class="com.actor.ssmtest.service.impl.AnnoServiceImpl_TransactionManager_Anno"/>
-
-    <context:annotation-config/>
+    <context:component-scan base-package="com.actor.ssmtest._9PlatformTransactionManager_Anno"/>
 
     <!-- 配置 JdbcTemplate -->
-    <bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
@@ -37,11 +30,11 @@
 
     <!-- 1.配置事务管理器 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"></property>
+        <property name="dataSource" ref="dataSource"/>
     </bean>
 
     <!-- 2.开启spirng对注解事务的支持 -->
-    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <!-- 3.在需要事务支持的地方使用 @Transactional 注解 -->
 </beans>

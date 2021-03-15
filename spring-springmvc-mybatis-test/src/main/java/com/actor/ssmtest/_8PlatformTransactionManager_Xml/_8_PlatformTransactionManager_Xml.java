@@ -1,8 +1,5 @@
-package com.actor.ssmtest;
+package com.actor.ssmtest._8PlatformTransactionManager_Xml;
 
-import com.actor.ssmtest.dao.impl.AccountDaoImpl_JdbcTemplate;
-import com.actor.ssmtest.dao.impl.AccountDaoImpl_TransactionManager;
-import com.actor.ssmtest.domain.Account;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

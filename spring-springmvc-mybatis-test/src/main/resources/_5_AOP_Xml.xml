@@ -10,10 +10,10 @@
            http://www.springframework.org/schema/aop
             http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean id="_5_Aop_Bean" class="com.actor.ssmtest.domain._5_Aop_Bean"/>
+    <bean id="_5_Aop_Bean" class="com.actor.ssmtest._5AOP_Xml._5_Aop_Bean"/>
 
     <!-- 1.Logger: 每个方法执行前, 先打印个日志, 里面有个 beforePrintLog()方法 -->
-    <bean id="logger" class="com.actor.ssmtest.utils.AOP_Logger_Xml"/>
+    <bean id="logger" class="com.actor.ssmtest._5AOP_Xml.AOP_Logger_Xml"/>
 
     <!-- spring中基于 XML 的 AOP 配置步骤:
         1.把通知 Bean也交给spring来管理
@@ -58,8 +58,8 @@
         <!-- 通用化切入点表达式: https://www.bilibili.com/video/BV1mE411X7yp?p=138 -->
         <!-- 写在 <aop:aspect 标签内部只能当前切面使用, 还可以写在 aop:aspect 外面, 此时就变成了所有切面可用 -->
         <!-- 且必须写在 <aop:aspect 之前(标签约束规定) -->
-        <aop:pointcut id="pt2" expression="execution(* com.actor.ssmtest.domain.*.*(..))"/>
-        <aop:pointcut id="pt1" expression="execution(* com.actor.ssmtest.controller.*.*(..))"/>
+        <aop:pointcut id="pt2" expression="execution(* com.actor.ssmtest.controller.*.*(..))"/>
+        <aop:pointcut id="pt1" expression="execution(* com.actor.ssmtest._5AOP_Xml.*.*(..))"/>
 
         <!-- 配置切面 -->
         <aop:aspect id="logAdvice" ref="logger">

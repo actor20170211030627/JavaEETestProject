@@ -2,7 +2,7 @@ package com.actor.ssmtest.service;
 
 import java.util.List;
 
-import com.actor.ssmtest.domain.Customer1;
+import com.actor.ssmtest._1Test_IOC_DI.Customer1;
 //import org.hibernate.criterion.DetachedCriteria;
 
 public interface CustomerService {

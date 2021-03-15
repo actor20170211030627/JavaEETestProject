@@ -1,8 +1,7 @@
-package com.actor.ssmtest;
+package com.actor.ssmtest._3Test_IOC_DI_Anno;
 
 import com.actor.ssmtest.controller.AccountController;
 import com.actor.ssmtest.domain.Account;
-import com.actor.ssmtest.config.SpringConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
@@ -60,7 +59,7 @@ public class _3_Test_IOC_DI_Anno {
          *
          * https://www.bilibili.com/video/BV1mE411X7yp?p=119
          */
-        ApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfiguration.class/*, JdbcConfig.class*/);
+        ApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfiguration3.class/*, JdbcConfig.class*/);
 
         //注解注入示例
         AccountController accountController = ac.getBean("accountController", AccountController.class);

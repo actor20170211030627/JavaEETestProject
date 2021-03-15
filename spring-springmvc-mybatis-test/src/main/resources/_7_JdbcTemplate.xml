@@ -20,7 +20,7 @@
 
 
     <!-- https://www.bilibili.com/video/BV1mE411X7yp?p=147 1.Xml配置的方式 -->
-    <bean id="accountDao" class="com.actor.ssmtest.dao.impl.AccountDaoImpl_JdbcTemplate">
+    <bean id="accountDao" class="com.actor.ssmtest._7JdbcTemplate.AccountDaoImpl_JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 </beans>

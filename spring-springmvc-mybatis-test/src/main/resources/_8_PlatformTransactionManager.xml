@@ -25,7 +25,7 @@
     </bean>
 
     <!-- 配置实体 -->
-    <bean id="accountDao" class="com.actor.ssmtest.dao.impl.AccountDaoImpl_TransactionManager"/>
+    <bean id="accountDao" class="com.actor.ssmtest._8PlatformTransactionManager_Xml.AccountDaoImpl_TransactionManager"/>
 
 
 
@@ -61,7 +61,7 @@
 
     <!-- 3.配置AOP中的通用切入点表达式 -->
     <aop:config>
-        <aop:pointcut id="pt1" expression="execution(* com.actor.ssmtest.dao.impl.*.*(..))"></aop:pointcut>
+        <aop:pointcut id="pt1" expression="execution(* com.actor.ssmtest._8PlatformTransactionManager_Xml.*.*(..))"></aop:pointcut>
         <!-- 4.建立事务通知和切入点表达式的对应关系 -->
         <aop:advisor advice-ref="txAdvice" pointcut-ref="pt1"></aop:advisor>
     </aop:config>

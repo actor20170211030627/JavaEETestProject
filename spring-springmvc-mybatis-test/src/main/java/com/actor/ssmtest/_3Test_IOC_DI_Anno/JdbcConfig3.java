@@ -1,17 +1,19 @@
-package com.actor.ssmtest.config;
+package com.actor.ssmtest._3Test_IOC_DI_Anno;
 
+import com.actor.ssmtest._9PlatformTransactionManager_Anno2.JdbcConfig9;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
 
 //JdbcConfig.class 是 SpringConfiguration 的子配置类, SpringConfiguration 添加了@Import 注解后, JdbcConfig 不用再添加 @Configuration 注解
 //@Configuration
-public class JdbcConfig {
+public class JdbcConfig3 {
 
     /**
      * @param dataSource spring会去容器中查找有没有可用的bean对象. 查找的方式和 @Autowired 注解的作用一样.
@@ -50,6 +52,10 @@ public class JdbcConfig {
     public DataSource createDataSource2() {
         try {
             ComboPooledDataSource ds = new ComboPooledDataSource();
+            /**
+             * @see JdbcConfig9#createDataSource2()
+             */
+//            DriverManagerDataSource ds = new DriverManagerDataSource();//org.springframework.jdbc.datasource.DriverManagerDataSource
             ds.setDriverClass(driver);
             ds.setJdbcUrl(url);
             ds.setUser(user);

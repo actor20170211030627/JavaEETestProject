@@ -1,4 +1,4 @@
-package com.actor.ssmtest.utils;
+package com.actor.ssmtest._6AOP_Anno;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Aspect     //表示当前类是一个切面类
 public class Anno_Logger_Anno {
 
-    @Pointcut("execution(* com.actor.ssmtest.domain.*.*(..))")
+    @Pointcut("execution(* com.actor.ssmtest._5AOP_Xml.*.*(..))")
     private void pt1() {
     }
 
