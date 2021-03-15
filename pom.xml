@@ -7,6 +7,7 @@
     <artifactId>javaeetestproject</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+    <url>http://www.example.com</url>
 
     <!--模块-->
     <modules>
@@ -16,9 +17,12 @@
     </modules>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <spring.version>5.0.2.RELEASE</spring.version>
     </properties>
 
     <!--依赖-->
