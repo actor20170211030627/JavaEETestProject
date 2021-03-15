@@ -11,7 +11,8 @@
     <!--模块-->
     <modules>
         <module>spring-boot-test</module>
-        <module>spring-springmvc-mybatis-test</module>
+        <module>spring-test</module>
+        <module>springMVC-test</module>
     </modules>
 
     <properties>
