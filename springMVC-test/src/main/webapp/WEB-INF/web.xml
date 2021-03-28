@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+          http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <display-name>Archetype Created Web Application</display-name>
+
+    <!-- 配置前端控制器 -->
+    <servlet>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!-- 启动服务器就创建 servlet.(默认使用的时候才开始创建) -->
+        <load-on-startup>1</load-on-startup>
+        <!-- 让 servlet 加载 springmvc.xml 配置文件 -->
+        <init-param>
+            <!-- 给 DispatcherServlet 的 contextConfigLocation 属性赋值 -->
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:springmvc.xml</param-value>
+        </init-param>
+    </servlet>
+    <!-- 请求映射 -->
+    <servlet-mapping>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <!-- / : 任何请求都会经过这个servlet -->
+        <url-pattern>/</url-pattern> <!-- *.form -->
+    </servlet-mapping>
+
+    <!-- 指定加载spring配置文件的位置 -->
+<!--    <context-param>-->
+<!--        &lt;!&ndash; 固定写法 &ndash;&gt;-->
+<!--        <param-name>contextConfigLocation</param-name>-->
+<!--        &lt;!&ndash; 如果写在 resource 目录下: classpath:applicationContext.xml &ndash;&gt;-->
+<!--        <param-value>/WEB-INF/applicationContext.xml</param-value>-->
+<!--    </context-param>-->
+
+    <!-- 可以让spring容器随项目的启动而创建,随项目的关闭而销毁 -->
+<!--    <listener>-->
+<!--        &lt;!&ndash; 需要导入jar包:spring-web-4.2.4.RELEASE.jar &ndash;&gt;-->
+<!--        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+<!--    </listener>-->
+
+</web-app>

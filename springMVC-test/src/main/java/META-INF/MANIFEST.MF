@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: com.actor.springmvc_test._1springmvc1.springmvc_test
-Class-Path: springmvc_test
-

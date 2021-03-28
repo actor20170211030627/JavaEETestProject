@@ -1,7 +1,13 @@
 package com.actor.springmvc_test._1springmvc1;
 
-//SpringMVC
-public class springmvc_test {
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
+
+@Controller
+@RequestMapping("hello")
+public class HelloController {
 
     /**
      * https://www.bilibili.com/video/BV1mE411X7yp?p=159
@@ -41,24 +47,56 @@ public class springmvc_test {
      *   -> maven-archetype-webapp -> Propertis界面添加点击"＋"配置, 解决Maven构建下载jar构建慢的问题:key:"archetypeCatalog"  value:"internal"
      *   然后添加依赖, 见 pom.xml
      *
-     *
-     * 2.配置"前端控制器(Servlet)", java/webapp/WEB-INF/web.xml -> <servlet>
+     * 2.配置"前端控制器(Servlet)", java/webapp/WEB-INF/web.xml => <servlet>
      *  并配置 filter, 解决 post 请求"中文乱码"问题
      *
      * 3.创建springmvc配置文件
      *  resource -> New -> XML ConfigurationFile -> Spring Config -> springmvc.xml
      *
      * 4.配置服务器
-     *  Run/Debug Configurations -> Deployment(部署) ->
-     *  配置server并且右侧Application context: springmvc_day01_01_start(项目路径, 用于http访问路径. 可填空)
+     *  Run/Debug Configurations => + => Tomcat Server => Deployment(部署) => + =>
+     *  Artifact... => springMVC-test:war => 右侧Application context: springmvc_day01_01_start(项目路径, 用于http访问路径. 可填空)
+     *  再点击 Deployment 左侧的Service, On 'Update' action: Redeploy(重新部署, 默认是Restart server)
      *  浏览器输入(项目运行完会自动打开): localhost:8080/springmvc_day01_01_start/
      *  如果什么都没填: : localhost:8080/
+     *
+     *
+     * https://www.bilibili.com/video/BV1mE411X7yp?p=163
+     *  1. index.jsp, HelloController
+     *  2. 在 springmvc.xml 中开启扫描: <context:component-scan
+     *  3. 在 web.xml 中配置        前端控制器 <servlet
+     *  4. 在 web.xml 中配置        请求映射 <servlet-mapping
+     *  5. 在 springmvc.xml 中配置  视图解析器 <bean, 用于解析跳转哪个.jsp
+     *  6. 在 springmvc.xml 中开启SpringMVC框架注解的支持 <mvn:annotation-driven/>
+     *
+     *
+     * https://www.bilibili.com/video/BV1mE411X7yp?p=164
+     *  访问流程大概说明
+     *
+     * https://www.bilibili.com/video/BV1mE411X7yp?p=165
+     *  访问流程大概详细说明, SpringMVC框架基于组件方式执行流程↓: https://blog.csdn.net/qq_37989070/article/details/108895277.
+     *  <a href="https://img-blog.csdnimg.cn/20201001155806721.png">流程图</a>
+     *
+     *  <mvn:annotation-driven/> 作用:
+     *  在SpringMVC的各个组建中, 处理器映射器, 处理器适配器, 视图解析器称为SpringMVC的3大组件.
+     *  使用<mvn:annotation-driven/> 自动加载 {@link RequestMappingHandlerMapping 处理映射器}
+     *  和 {@link RequestMappingHandlerAdapter 处理适配器}, 可用在 SpringMVC.xml 配置文件中
+     *  使用<mvn:annotation-driven/> 替代注解处理器和适配器的配置.
+     *      它就相当于在xml中配置了:
+     *      <!-- Begin -->
+     *      <!-- HandlerMapping -->
+     *      <bean ... ...一大堆, 详情看视频结尾
+     *
+     *
+     * https://www.bilibili.com/video/BV1mE411X7yp?p=166
+     *  未开始看
      *
      *
      * https://www.bilibili.com/video/BV1mE411X7yp?p=167
      * RequestMapping注解的属性
      */
-    public static void main(String[] args) {
-        System.out.println("hello springmvc!");
+    @RequestMapping(path = "/sayHello")
+    public String sayHello() {
+        return "success";//返回 success.jsp
     }
 }

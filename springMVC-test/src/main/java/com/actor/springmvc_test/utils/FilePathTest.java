@@ -1,6 +1,6 @@
 package com.actor.springmvc_test.utils;
 
-import com.actor.springmvc_test._1springmvc1.springmvc_test;
+import com.actor.springmvc_test._1springmvc1.HelloController;
 
 import java.io.File;
 import java.net.URLDecoder;
@@ -16,7 +16,7 @@ public class FilePathTest {
         //jar 包: /E:/JavaEEProjects/JavaEETestProject/out/artifacts/springMVC_test_jar/springMVC-test.jar
         String path = null;
         try {
-            path = springmvc_test.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+            path = HelloController.class.getProtectionDomain().getCodeSource().getLocation().getPath();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -24,7 +24,7 @@ public class FilePathTest {
         //jar 包: /E:/JavaEEProjects/JavaEETestProject/out/artifacts/springMVC_test_jar/springMVC-test.jar
         String jarPath = null;
         try {
-            jarPath = springmvc_test.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+            jarPath = HelloController.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
         } catch (Exception e) {
             e.printStackTrace();
         }

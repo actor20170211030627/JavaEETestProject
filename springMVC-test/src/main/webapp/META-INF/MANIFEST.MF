@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: com.actor.springmvc_test._1springmvc1.HelloController
+Class-Path: springmvc_test
+
