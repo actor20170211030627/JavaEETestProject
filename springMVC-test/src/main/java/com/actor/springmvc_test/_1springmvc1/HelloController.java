@@ -2,6 +2,7 @@ package com.actor.springmvc_test._1springmvc1;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
@@ -89,14 +90,28 @@ public class HelloController {
      *
      *
      * https://www.bilibili.com/video/BV1mE411X7yp?p=166
-     *  未开始看
+     * @see RequestMapping 请求映射
      *
      *
      * https://www.bilibili.com/video/BV1mE411X7yp?p=167
-     * RequestMapping注解的属性
+     * @see RequestMapping 注解的属性
+     * @see RequestMapping#path()   映射路径, 和value()一样的作用
+     * @see RequestMapping#value()  和path()一样的作用
+     * @see RequestMapping#method() 指定请求方法, 例: {@link RequestMethod#GET}, get方法
+     * @see RequestMapping#params() 指定限制请求参数的条件. 支持简单的表达式,
+     *                              要求请求的key和value必须和配置的一模一样.
+     *                              例: params = {"accountName"}, 请求参数必须有accountName
+     *                              例: params = {"name=hehe"}, 请求参数必须有name=hehe
+     *                              例: params = {"money!100"}, 请求参数中money不能是100
+     * @see RequestMapping#headers() 指定限制请求消息头的条件.
+     *
+     *
+     * https://www.bilibili.com/video/BV1mE411X7yp?p=168
+     * 请求参数绑定
      */
-    @RequestMapping(path = "/sayHello")
+    @RequestMapping(path = "/sayHello", method = RequestMethod.GET, headers = {"Accept"}, params = {"name=hehe"})
     public String sayHello() {
-        return "success";//返回 success.jsp
+        //返回 success.jsp
+        return "success";
     }
 }

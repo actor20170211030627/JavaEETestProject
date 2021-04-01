@@ -14,7 +14,7 @@
 
   <body>
     <h2>Hello World!测试中文乱码</h2>
-    <a href="hello/sayHello">调用接口, 跳转'success'页面!</a>
+    <a href="hello/sayHello?name=hehe">调用接口, 跳转'success'页面!</a>
 
     <h3>SpringMVC框架基于组件方式执行流程.png</h3>
     <img width="25%" src="WEB-INF/SpringMVC框架基于组件方式执行流程.png">
