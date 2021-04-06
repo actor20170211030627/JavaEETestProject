@@ -1,5 +1,6 @@
 package com.actor.springmvc_test._1springmvc1;
 
+import com.actor.springmvc_test.domain.Account;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -107,11 +108,33 @@ public class HelloController {
      *
      *
      * https://www.bilibili.com/video/BV1mE411X7yp?p=168
-     * 请求参数绑定
+     * 请求参数绑定(中文不乱码)
+     * @see #testParam(String, String)
+     *
+     * https://www.bilibili.com/video/BV1mE411X7yp?p=169
+     * 1.请求参数绑定实体类型, 实体必须有set方法, 否则数据封装不进去...
+     * 2.如果 Account 实体里面还有另外的实体 User, Account 就必须写 getUser 方法, 否则user封装不进去.
+     * 3.中文乱码
+     * @see #testAccount(Account)
+     *
+     * https://www.bilibili.com/video/BV1mE411X7yp?p=170
+     *
      */
     @RequestMapping(path = "/sayHello", method = RequestMethod.GET, headers = {"Accept"}, params = {"name=hehe"})
     public String sayHello() {
         //返回 success.jsp
+        return "success";
+    }
+
+    @RequestMapping("/testParam")
+    public String testParam(String username, String password) {
+        System.out.printf("username=%s, password=%s", username, password);
+        return "success";
+    }
+
+    @RequestMapping("/testAccount")
+    public String testAccount(Account account) {
+        System.out.printf("account = %s", account);
         return "success";
     }
 }
