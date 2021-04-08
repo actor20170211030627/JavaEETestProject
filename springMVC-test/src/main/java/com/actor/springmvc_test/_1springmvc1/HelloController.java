@@ -108,17 +108,37 @@ public class HelloController {
      *
      *
      * https://www.bilibili.com/video/BV1mE411X7yp?p=168
-     * 请求参数绑定(中文不乱码)
+     * 请求参数绑定(post 请求中文不乱码)
      * @see #testParam(String, String)
      *
      * https://www.bilibili.com/video/BV1mE411X7yp?p=169
-     * 1.请求参数绑定实体类型, 实体必须有set方法, 否则数据封装不进去...
+     * 1.请求参数绑定实体类型, 实体必须有 set()方法, 否则数据封装不进去...
      * 2.如果 Account 实体里面还有另外的实体 User, Account 就必须写 getUser 方法, 否则user封装不进去.
-     * 3.中文乱码
+     * 3.post 请求中文乱码
      * @see #testAccount(Account)
      *
-     * https://www.bilibili.com/video/BV1mE411X7yp?p=170
      *
+     * https://www.bilibili.com/video/BV1mE411X7yp?p=170
+     * 配置解决中文乱码的过滤器
+     * <filter>
+     *     <filter-name>characterEncodingFilter</filter-name>
+     *     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+     *     <init-param>
+     *         <param-name>encoding</param-name>
+     *         <param-value>UTF-8</param-value>
+     *     </init-param>
+     * </filter>
+     * <filter-mapping>
+     *     <filter-name>characterEncodingFilter</filter-name>
+     *     <url-pattern>/*</url-pattern>
+     * </filter-mapping>
+     *
+     *
+     * https://www.bilibili.com/video/BV1mE411X7yp?p=171
+     * 请求参数绑定集合类型 List & Map
+     * 1.List & Map 必须有 get()方法, 否则数据封装不进去...
+     *
+     * https://www.bilibili.com/video/BV1mE411X7yp?p=172
      */
     @RequestMapping(path = "/sayHello", method = RequestMethod.GET, headers = {"Accept"}, params = {"name=hehe"})
     public String sayHello() {

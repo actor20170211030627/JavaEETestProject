@@ -1,5 +1,6 @@
 package com.actor.springmvc_test.domain;
 
+import com.actor.springmvc_test.utils.JacksonUtils;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
@@ -14,12 +15,9 @@ import java.util.Date;
  * @version 1.0
  */
 public class User implements Serializable {
+
     public String uname;
     public Integer age;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")// HH:mm:ss
-    public String time;
-    public Date birthday;
-    public LocalDateTime localDateTime;
 
 //    public String getUname() { return uname; }
 
@@ -33,26 +31,8 @@ public class User implements Serializable {
         this.age = age;
     }
 
-//    public Date getBirthday() { return birthday; }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
-    public void setLocalDateTime(LocalDateTime localDateTime) {
-        this.localDateTime = localDateTime;
-    }
-
     @Override
     public String toString() {
-        return "User{" +
-                "uname='" + uname + '\'' +
-                ", age=" + age +
-                ", birthday=" + birthday +
-                '}';
+        return JacksonUtils.object2Json(this);
     }
 }

@@ -1,4 +1,4 @@
-package com.actor.ssmtest.utils;
+package com.actor.springmvc_test.utils;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
