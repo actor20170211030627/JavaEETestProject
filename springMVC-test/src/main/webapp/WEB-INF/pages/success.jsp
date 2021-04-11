@@ -5,7 +5,9 @@
   Time: 16:46
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%-- isELIgnored="false", 不忽略el表达式: $ --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
     <title>Title</title>
@@ -13,5 +15,11 @@
 
 <body>
     <h2>成功!</h2>
+
+    <p>request域对象.msg(\${ requestScope.msg }) = ${ requestScope.msg }</p>
+    <p>request域对象.msg, 简写(\${ msg }) = ${ msg }</p>
+    <p>request域对象.msg1(\${ msg1 }) = ${ msg1 }</p>
+    <p>session域对象, (\${ sessionScope }) = ${ sessionScope }</p>
+    <p>request域对象, (\${ requestScope }) = ${ requestScope }</p>
 </body>
 </html>

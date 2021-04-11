@@ -22,8 +22,9 @@ public class Account implements Serializable {
     public double money;
 
     public String time;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")//SpringMVC默认接收格式: yyyy/MM/dd
     public Date birthday;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")//:ss
     public LocalDateTime localDateTime;
     //对象
