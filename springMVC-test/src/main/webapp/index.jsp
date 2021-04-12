@@ -95,7 +95,13 @@
       </li>
       <li>15.@SessionAttributes 注解:<br/>
           <a href="hello/testSessionAttributes">@SessionAttributes 注解, 添加'msg'到request&session域中</a>
-          <a href="hello/getSessionAttributes">&emsp;@SessionAttributes 注解, 从request域中获取值</a>
+          &emsp;<a href="hello/getSessionAttributes">从request域中获取值</a>
+          &emsp;<a href="hello/deleteSessionAttributes">从request域中删除</a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <br/><br/><br/><h3>2.下方是各种响应区</h3>
       </li>
     </ul>
 

@@ -16,10 +16,12 @@
 <body>
     <h2>成功!</h2>
 
-    <p>request域对象.msg(\${ requestScope.msg }) = ${ requestScope.msg }</p>
-    <p>request域对象.msg, 简写(\${ msg }) = ${ msg }</p>
-    <p>request域对象.msg1(\${ msg1 }) = ${ msg1 }</p>
-    <p>session域对象, (\${ sessionScope }) = ${ sessionScope }</p>
-    <p>request域对象, (\${ requestScope }) = ${ requestScope }</p>
+    <p>request域对象.msg = \${ requestScope.msg } = ${ requestScope.msg }</p>
+    <p>request.msg, 简写 = \${ msg } = ${ msg }</p>
+    <p>request.msg1 = \${ msg1 } = ${ msg1 }</p>
+    <p>session域对象 = \${ sessionScope } = ${ sessionScope }</p>
+    <p>session域对象 = \${ sessionScope.msg } = ${ sessionScope.msg }</p>
+    <p>session域对象 = \${ sessionScope.msg1 } = ${ sessionScope.msg1 }</p>
+    <p>request = \${ requestScope } = ${ requestScope }</p>
 </body>
 </html>

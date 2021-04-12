@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
@@ -327,16 +328,30 @@ public class HelloController {
      * @see HelloController 的 @SessionAttributes("msg") 注解
      */
     @RequestMapping("/testSessionAttributes")
-    public String testSessionAttributes(/*HttpServletRequest request, */Model model) {
-        //底层会存储到 request 域对象中.
+    public String testSessionAttributes(Model model) {
+        //底层会存储到 "Request!!!" 域对象中.
         model.addAttribute("msg", "思思");
         model.addAttribute("msg1", "思思1");
         return "success";
     }
-    @RequestMapping("/getSessionAttributes")//09:47
+    //获取
+    @RequestMapping("/getSessionAttributes")
     public String getSessionAttributes(ModelMap modelMap) {
-        Object msg = modelMap.getAttribute("msg1");
-        System.out.printf("从msg1 = %s", msg);
+        //从"Session!!!"域对象中取值
+        Object msg = modelMap.getAttribute("msg");
+        Object msg1 = modelMap.getAttribute("msg1");
+        System.out.printf("从\"Session!!!\"域对象中取值, msg=%s, msg1=%s\n", msg, msg1);
         return "success";
     }
+    //删掉
+    @RequestMapping("/deleteSessionAttributes")
+    public String deleteSessionAttributes(SessionStatus status) {
+        status.setComplete();
+        return "success";
+    }
+
+    /**
+     * 16.搭建环境: https://www.bilibili.com/video/BV1mE411X7yp?p=183
+     * 响应之返回值是String类型: https://www.bilibili.com/video/BV1mE411X7yp?p=184
+     */
 }
