@@ -99,10 +99,12 @@
           &emsp;<a href="hello/deleteSessionAttributes">从request域中删除</a>
       </li>
     </ul>
+    <br/><br/><br/>
     <ul>
-      <li>
-        <br/><br/><br/><h3>2.下方是各种响应区</h3>
-      </li>
+      <li><h3>2.下方是各种响应区</h3></li>
+      <li>1.<a href="hello/returnString">通过Model返回user对象</a></li>
+      <li>2.<a href="hello/returnVoid">返回void类型(1.请求转发, 2.重定向, 3.直接进行响应)</a></li>
+      <li>3.<a href="hello/testForwardOrredirect">测试关键字'forward(请求转发)'和'redirect(重定向)'</a></li>
     </ul>
 
     <%-- type="text/javascript" --%>
@@ -113,6 +115,8 @@
           "uname": uname,
           "age": age
         };
+
+        //ajax需要jquery
         $.ajax({
           type: "POST",
           url: url,
