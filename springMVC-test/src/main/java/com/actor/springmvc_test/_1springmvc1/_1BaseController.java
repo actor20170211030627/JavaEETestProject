@@ -29,7 +29,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/hello")
 @SessionAttributes(value = {"msg"})//将'msg=思思'存入到session域对象中
-public class HelloController {
+public class _1BaseController {
 
     /**
      * https://www.bilibili.com/video/BV1mE411X7yp?p=159
@@ -327,7 +327,7 @@ public class HelloController {
      * @see SessionAttributes#value() 指定存入的属性名称
      * @see SessionAttributes#types() 指定存入的数据类型
      * 作用: 用于多次执行控制器方法间的参数共享
-     * @see HelloController 的 @SessionAttributes("msg") 注解
+     * @see _1BaseController 的 @SessionAttributes("msg") 注解
      */
     @RequestMapping("/testSessionAttributes")
     public String testSessionAttributes(Model model) {
@@ -352,72 +352,11 @@ public class HelloController {
         return "success";
     }
 
-    /**
-     * 16.1.搭建环境: https://www.bilibili.com/video/BV1mE411X7yp?p=183
-     *  响应之返回值是String类型: https://www.bilibili.com/video/BV1mE411X7yp?p=184
-     */
-    @RequestMapping("/returnString")
-    public String returnString(Model model) {
-        User user = new User();
-        user.setUname("思思");
-        user.setAge(123);
-        model.addAttribute("user", user);//将user通过request域返回
-        return "success";
+    //跳转第2页
+    @RequestMapping("/go2Returns")
+    public String go2Returns() {
+        return "forward:/WEB-INF/pages/_2returnTest.jsp";
+
+//        response.sendRedirect(request.getContextPath() + "/WEB-INF/pages/return/_2returnTest.jsp");
     }
-
-    /**
-     * 2.响应之返回值是void类型: https://www.bilibili.com/video/BV1mE411X7yp?p=185
-     * 什么都不放, 默认情况下点击会跳转:
-     *      http://localhost:8080/springMVC_test_war/WEB-INF/pages/hello/returnVoid.jsp(会报错404)
-     * 解决:
-     *  请求转发: 服务器行为，request.getRequestDispatcher().forward(req,resp);是一次请求，转发后请求对象会保存，地址栏的URL地址不会改变。
-     *  重定向: 客户端行为，response.sendRedirect(),从本质上讲等同于两次请求，前一次的请求对象不会保存，地址栏的URL地址会改变。
-     *          java & jsp 都可以写重定向代码
-     *  直接进行响应:
-     *          response.getWriter().print("你好呀!");
-     */
-    @RequestMapping("/returnVoid")
-    public void returnVoid(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //请求转发, 转发到success页面
-//        request.getRequestDispatcher("/WEB-INF/pages/success.jsp").forward(request, response);
-
-
-        //或者 重定向
-//        response.sendRedirect("https://www.baidu.com/");
-        //同样的效果
-//        response.setStatus(response.SC_MOVED_TEMPORARILY);
-//        response.setHeader("Location", "https://www.baidu.com/");
-
-        //request.getContextPath()项目路径: "/springMVC_test_war"
-//        response.sendRedirect(request.getContextPath() + "/index.jsp");
-
-        //下方这个写法跳转cuccess没成功!!!
-        response.sendRedirect(request.getContextPath() + "/WEB-INF/pages/hello/success.jsp");
-
-
-        //直接进行响应
-        //设置中文乱码(经测试, 可不写)
-//        response.setCharacterEncoding("UTF-8");
-        //设置浏览器打开解析的编码
-//        response.setContentType("text/html;charset=UTF-8");
-//        response.getWriter().print("你好呀, 这是返回void的直接进行响应!");
-    }
-
-    /**
-     * https://www.bilibili.com/video/BV1mE411X7yp?p=186
-     * 响应之使用'forward'和'redirect'进行页面跳转
-     */
-    @RequestMapping("/testForwardOrredirect")
-    public String testForwardOrredirect() {
-        //请求转发
-//        return "forward:/WEB-INF/pages/success.jsp";
-        //重定向
-//        return "redirect:/index.jsp";
-        return "redirect:https://www.baidu.com/";
-    }
-
-    /**
-     * https://www.bilibili.com/video/BV1mE411X7yp?p=187
-     * 响应json数据之过滤静态资源
-     */
 }

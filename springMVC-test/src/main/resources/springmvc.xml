@@ -19,6 +19,11 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!-- 前端控制器, 哪些静态资源不拦截, location: 静态资源地址. mapping: 哪些请求映射. -->
+    <mvn:resources location="/css/" mapping="/css/**"/>
+    <mvn:resources location="/js/" mapping="/js/**"/>
+    <mvn:resources location="/image/" mapping="/image/**"/>
+
     <!-- 配置自定义类型转换器 -->
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">

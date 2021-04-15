@@ -9,16 +9,21 @@
 <%-- isELIgnored="false", 不忽略el表达式: $ --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
-  <head>
-    <title>SpringMVC: $Title$</title>
-  </head>
+    <head>
+        <title>SpringMVC各种属性. $Title$</title>
+
+        <%-- type="text/javascript" --%>
+<%--        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script> --%>
+      <%-- 要过滤静态资源, 否则js下载不了, 调js方法报错: Uncaught ReferenceError: $ is not defined --%>
+        <script src="js/jquery-3.4.1.min.js"></script>
+    </head>
 
   <body>
     <ul>
       <li>
         <h3>1.SpringMVC框架基于组件方式执行流程.png</h3>
-        <%--    <img width="25%" src="WEB-INF/SpringMVC框架基于组件方式执行流程.png">--%>
-        <img width="35%" src="https://img-blog.csdnimg.cn/20201001155806721.png">
+            <img width="35%" src="image/SpringMVC框架基于组件方式执行流程.png" alt="SpringMVC框架基于组件方式执行流程"/>
+<%--        <img width="35%" src="https://img-blog.csdnimg.cn/20201001155806721.png"/>--%>
       </li>
       <%-- "${pageContext.request.contextPath}/hello/sayHello": 一样的 --%>
       <li>2.<a href="hello/sayHello?name=hehe">调用接口, 跳转'success'页面!</a></li>
@@ -98,17 +103,10 @@
           &emsp;<a href="hello/getSessionAttributes">从request域中获取值</a>
           &emsp;<a href="hello/deleteSessionAttributes">从request域中删除</a>
       </li>
-    </ul>
-    <br/><br/><br/>
-    <ul>
-      <li><h3>2.下方是各种响应区</h3></li>
-      <li>1.<a href="hello/returnString">通过Model返回user对象</a></li>
-      <li>2.<a href="hello/returnVoid">返回void类型(1.请求转发, 2.重定向, 3.直接进行响应)</a></li>
-      <li>3.<a href="hello/testForwardOrredirect">测试关键字'forward(请求转发)'和'redirect(重定向)'</a></li>
+
+        <li><h3><a href="hello/go2Returns">2.跳转各种响应类型</a></h3></li>
     </ul>
 
-    <%-- type="text/javascript" --%>
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script>
       function postJson(url, uname, age) {
         var user = {
@@ -125,6 +123,7 @@
         });
       }
     </script>
+
   $END$
   </body>
 </html>
