@@ -40,6 +40,21 @@
         <property name="maxUploadSize" value="10485760"/>
     </bean>
 
+    <!-- 配置异常处理器(跳转到提示页面) -->
+    <bean id="customExceptionResolver" class="com.actor.springmvc_test.exception.CustomExceptionResolver"/>
+
+    <!-- 配置拦截器(拦截controller方法) -->
+    <mvn:interceptors>
+        <mvn:interceptor>
+            <!-- 要拦截的具体方法, /** 拦截全部.   /hello/* 拦截hello里的所有方法 -->
+            <mvn:mapping path="/interceptor/*"/>
+            <!-- 不拦截的具体方法 -->
+            <!--<mvn:exclude-mapping path=""/>-->
+            <!-- 配置拦截器对象 -->
+            <bean class="com.actor.springmvc_test.interceptor.CustomInterceptor"/>
+        </mvn:interceptor>
+    </mvn:interceptors>
+
     <!-- 开启SpringMVC框架注解的支持 -->
     <mvn:annotation-driven/>
     <!-- 添加转换器 -->

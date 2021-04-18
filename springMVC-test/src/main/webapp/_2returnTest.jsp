@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
     <head>
-        <title>各种返回值</title>
+        <title>各种响应类型&文件上传&Exception&拦截器</title>
 
         <script src="js/jquery-3.4.1.min.js"></script>
     </head>
@@ -23,23 +23,25 @@
             <li>4.<a href="return/returnModelAndView">返回SpringMVC自带的'ModelAndView'</a></li>
             <li>5.<button id="btn">@ResponseBody 异步Ajax发送json, 返回Json</button></li>
             <li>6.文件上传之传统方式上传代码回顾, post(multipart/form-data: 把表单分成几个部分上传)
-                <form action="return/fileUpload1" enctype="multipart/form-data" method="post">
+                <form action="file/fileUpload1" enctype="multipart/form-data" method="post">
                     选择文件: <input type="file" name="file1"/>
                     <input type="submit" value="上传"/>
                 </form>
             </li>
             <li>7.SpringMVC方式文件上传
-                <form action="return/fileUpload2" enctype="multipart/form-data" method="post">
+                <form action="file/fileUpload2" enctype="multipart/form-data" method="post">
                     选择文件: <input type="file" name="file2"/>
                     <input type="submit" value="上传"/>
                 </form>
             </li>
             <li>8.跨服务器文件上传
-                <form action="return/fileUpload3" enctype="multipart/form-data" method="post">
+                <form action="file/fileUpload3" enctype="multipart/form-data" method="post">
                     选择文件: <input type="file" name="file3"/>
                     <input type="submit" value="上传"/>
                 </form>
             </li>
+            <li>9.<a href="exception/testException">Exception异常处理</a></li>
+            <li>10.<a href="interceptor/testInterceptor">HandlerInterceptor拦截器</a></li>
         </ul>
 
         <script>

@@ -1,4 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: com.actor.springmvc_test._1springmvc1._1BaseController
+Main-Class: com.actor.springmvc_test.utils.FilePathTest
 Class-Path: springmvc_test
-

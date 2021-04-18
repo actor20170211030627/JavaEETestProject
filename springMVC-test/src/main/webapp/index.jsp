@@ -24,7 +24,7 @@
         <h3>1.SpringMVC框架基于组件方式执行流程.png
 
             <%-- _2returnTest.jsp必须放在同一目录, 否则跳不进去 --%>
-            &emsp; <a href="_2returnTest.jsp">2.跳转各种响应类型</a>
+            &emsp; <a href="_2returnTest.jsp">2.各种响应类型&文件上传&Exception&拦截器</a>
         </h3>
 
             <img width="35%" src="image/SpringMVC框架基于组件方式执行流程.png" alt="SpringMVC框架基于组件方式执行流程"/>
