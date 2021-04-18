@@ -77,12 +77,18 @@ public class _1BaseController {
      *
      * 4.配置服务器
      *  Run/Debug Configurations => + => Tomcat Server => Deployment(部署) => + =>
-     *  Artifact... => springMVC-test:war => 右侧Application context: springmvc_day01_01_start(项目路径, 用于http访问路径. 可填空)
+     *  Artifact... => springMVC-test:war exploded => 右侧Application context: springmvc_day01_01_start(项目路径, 用于http访问路径. 可填空)
      *  再点击 Deployment 左侧的Service, On 'Update' action: Redeploy(重新部署, 默认是Restart server)
      *  浏览器输入(项目运行完会自动打开):
      *      http://localhost:8080/springmvc_day01_01_start/
      *      http://localhost:8080/springMVC_test_war/index.jsp (一样的)
      *  如果什么都没填: http://localhost:8080/
+     * 4.1.两种部署方式的区别:
+     *  https://blog.csdn.net/spring_zhangH/article/details/104613311
+     *  1.war: 这种可以称之为是发布模式，就是先将WEB工程打成war包，然后再将其上传到服务器进行发布 。
+     *  2.war exploded: 将WEB工程以当前文件夹的位置关系上传到服务器，即直接把文件夹、jsp页面 、classes等等移到Tomcat 部署文件夹里面，
+     *                  进行加载部署。因此这种方式支持热部署，一般在开发的时候也是用这种方式。
+     *                  在平时开发的时候，使用热部署的话，应该对Tomcat进行相应的设置，这样的话修改的jsp界面什么的东西才可以及时的显示出来。
      *
      *
      * https://www.bilibili.com/video/BV1mE411X7yp?p=163
@@ -226,7 +232,11 @@ public class _1BaseController {
         System.out.printf("body = %s\n", body);
         return "success";
     }
-    //10.请求体, json转对象
+
+    /**
+     * 10.请求体, json转对象
+     * @see _2ReturnController#returnJson(User)
+     */
     @RequestMapping(value = "/testRequestBodyJson2User", method = RequestMethod.POST)
     public String testRequestBody(@RequestBody User user) {
         System.out.printf("user = %s\n", user);
@@ -350,13 +360,5 @@ public class _1BaseController {
     public String deleteSessionAttributes(SessionStatus status) {
         status.setComplete();
         return "success";
-    }
-
-    //跳转第2页
-    @RequestMapping("/go2Returns")
-    public String go2Returns() {
-        return "forward:/WEB-INF/pages/_2returnTest.jsp";
-
-//        response.sendRedirect(request.getContextPath() + "/WEB-INF/pages/return/_2returnTest.jsp");
     }
 }

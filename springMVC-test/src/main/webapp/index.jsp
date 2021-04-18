@@ -21,7 +21,12 @@
   <body>
     <ul>
       <li>
-        <h3>1.SpringMVC框架基于组件方式执行流程.png</h3>
+        <h3>1.SpringMVC框架基于组件方式执行流程.png
+
+            <%-- _2returnTest.jsp必须放在同一目录, 否则跳不进去 --%>
+            &emsp; <a href="_2returnTest.jsp">2.跳转各种响应类型</a>
+        </h3>
+
             <img width="35%" src="image/SpringMVC框架基于组件方式执行流程.png" alt="SpringMVC框架基于组件方式执行流程"/>
 <%--        <img width="35%" src="https://img-blog.csdnimg.cn/20201001155806721.png"/>--%>
       </li>
@@ -103,8 +108,6 @@
           &emsp;<a href="hello/getSessionAttributes">从request域中获取值</a>
           &emsp;<a href="hello/deleteSessionAttributes">从request域中删除</a>
       </li>
-
-        <li><h3><a href="hello/go2Returns">2.跳转各种响应类型</a></h3></li>
     </ul>
 
     <script>
