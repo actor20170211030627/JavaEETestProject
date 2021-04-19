@@ -46,11 +46,18 @@ public class _5InterceptorController {
      *     </mvn:interceptor>
      * </mvn:interceptors>
      *
-     * https://www.bilibili.com/video/BV1mE411X7yp?p=202
+     * 2.拦截器工作顺序
+     *      1.自定义拦截器的 preHandle()方法执行了
+     *      2.Controller中的方法执行了!
+     *      3.自定义拦截器的 postHandle()方法执行了
+     *      4.success.jsp里的java代码执行了!
+     *      5.自定义拦截器的 afterCompletion()方法执行了
+     *
+     * https://www.bilibili.com/video/BV1mE411X7yp?p=203
      */
     @RequestMapping("/testInterceptor")
     public String testInterceptor() {
-        System.out.println("Controller中的方法执行了!");
+        System.out.println("2.Controller中的方法执行了!");
         return "success";
     }
 }

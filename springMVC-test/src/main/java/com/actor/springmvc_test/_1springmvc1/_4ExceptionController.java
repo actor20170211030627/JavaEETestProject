@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/exception")
-public class _4Exception_Controller {
+public class _4ExceptionController {
 
     /**
      * https://www.bilibili.com/video/BV1mE411X7yp?p=196

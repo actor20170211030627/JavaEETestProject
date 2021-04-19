@@ -26,7 +26,7 @@ public class CustomInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println("自定义拦截器的 1.preHandle()方法执行了");
+        System.out.println("1.自定义拦截器的 preHandle()方法执行了");
         return true;
     }
 
@@ -40,7 +40,7 @@ public class CustomInterceptor implements HandlerInterceptor {
      */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        System.out.println("自定义拦截器的 2.postHandle()方法执行了");
+        System.out.println("3.自定义拦截器的 postHandle()方法执行了");
     }
 
     /**
@@ -53,6 +53,6 @@ public class CustomInterceptor implements HandlerInterceptor {
      */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        System.out.println("自定义拦截器的 3.afterCompletion()方法执行了");
+        System.out.println("5.自定义拦截器的 afterCompletion()方法执行了");
     }
 }

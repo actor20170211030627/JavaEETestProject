@@ -16,7 +16,7 @@
 <body>
     <h2>成功!</h2>
     <%
-        System.out.println("success.jsp里的java代码执行了!");
+        System.out.println("4.success.jsp里的java代码执行了!");
     %>
     <p>request域对象.msg = \${ requestScope.msg } = ${ requestScope.msg }</p>
     <p>request.msg, 简写 = \${ msg } = ${ msg }</p>
