@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Description: Redis测试
- * Author     : 李大发
  * Date       : 2020/2/23 on 14:49
  */
 @Controller

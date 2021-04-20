@@ -13,8 +13,8 @@
     <groupId>com.actor</groupId>
     <artifactId>spring-boot-test</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot-test</name>
-    <description>Spring Boot测试</description>
+    <name>Spring Boot 测试</name>
+    <description>spring-boot-test Maven Webapp</description>
 
     <dependencies>
         <!--一般都要勾选web-->

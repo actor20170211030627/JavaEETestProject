@@ -95,7 +95,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * https://www.bilibili.com/video/BV1mE411X7yp?p=139
  *  spring中的"环绕通知", 见xml中 <aop:around
  *
- * @author : 李大发
  * date       : 2021/2/25 on 16
  * @version 1.0
  */

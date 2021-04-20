@@ -18,13 +18,12 @@
     <%
         System.out.println("4.success.jsp里的java代码执行了!");
     %>
-    <p>request域对象.msg = \${ requestScope.msg } = ${ requestScope.msg }</p>
-    <p>request.msg, 简写 = \${ msg } = ${ msg }</p>
+    <p>request域对象.msg0 = \${ requestScope.msg0 } = \${ msg0 } = ${ msg0 }</p>
     <p>request.msg1 = \${ msg1 } = ${ msg1 }</p><br/>
     <P>返回String: request.user = \${ user } = ${ user }</P><%-- 也可写成: user.toString() --%>
 
     <p>session域对象 = \${ sessionScope } = ${ sessionScope }</p>
-    <p>session域对象 = \${ sessionScope.msg } = ${ sessionScope.msg }</p>
+    <p>session域对象 = \${ sessionScope.msg0 } = ${ sessionScope.msg0 }</p>
     <p>session域对象 = \${ sessionScope.msg1 } = ${ sessionScope.msg1 }</p><br/>
 
     <p>request = \${ requestScope } = ${ requestScope }</p>

@@ -40,7 +40,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * https://www.bilibili.com/video/BV1mE411X7yp?p=150
  *  基于注解的AOP实现事务控制及问题分析_下
  *
- * @author : 李大发
  * date       : 2021/2/25 on 16
  * @version 1.0
  */

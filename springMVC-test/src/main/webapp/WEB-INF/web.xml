@@ -16,6 +16,7 @@
         <init-param>
             <!-- 给 DispatcherServlet 的 contextConfigLocation 属性赋值 -->
             <param-name>contextConfigLocation</param-name>
+            <!-- 如果写在 WEB-INF 目录下: /WEB-INF/springmvc.xml -->
             <param-value>classpath:springmvc.xml</param-value>
         </init-param>
     </servlet>
@@ -25,15 +26,6 @@
         <!-- / : 任何请求都会经过这个servlet -->
         <url-pattern>/</url-pattern> <!-- *.form -->
     </servlet-mapping>
-
-    <!-- 指定加载spring配置文件的位置 -->
-<!--    <context-param>-->
-        <!-- 固定写法 -->
-<!--        <param-name>contextConfigLocation</param-name>-->
-        <!-- 如果写在 resource 目录下: classpath:applicationContext.xml -->
-<!--        <param-value>/WEB-INF/applicationContext.xml</param-value>-->
-<!--    </context-param>-->
-
 
     <!-- 配置解决中文乱码的过滤器 -->
     <filter>

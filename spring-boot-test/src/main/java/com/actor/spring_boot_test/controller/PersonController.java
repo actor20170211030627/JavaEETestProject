@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  * description: 类的描述
- * author     : 李大发
  * date       : 2020/2/25 on 11:49
  */
 //@Controller

@@ -19,7 +19,6 @@ import java.util.UUID;
 /**
  * description: 描述
  *
- * @author : 李大发
  * date       : 2021/4/18 on 22
  * @version 1.0
  */
@@ -88,7 +87,7 @@ public class _3FileController {
                  */
                 String format = String.format("fieldName(表单上传的key)=%s, fileName=%s. uploadPath=%s",
                         fieldName, fileName, uploadPath);
-                request.setAttribute("msg", BaseResponse.ok("文件上传成功!", format));
+                request.setAttribute("msg0", BaseResponse.ok("文件上传成功!", format));
             }
         }
         return "success";
@@ -122,7 +121,7 @@ public class _3FileController {
         //返回上传信息
         String format = String.format("fieldName(表单上传的key)=%s, fileName=%s, contentType=%s, size=%d. uploadPath=%s",
                 file2.getName(), fileName, file2.getContentType(), file2.getSize(), uploadPath);
-        request.setAttribute("msg", BaseResponse.ok("文件上传成功!", format));
+        request.setAttribute("msg0", BaseResponse.ok("文件上传成功!", format));
         return "success";
     }
 
@@ -165,7 +164,7 @@ public class _3FileController {
         //返回上传信息
         String format = String.format("fieldName(表单上传的key)=%s, fileName=%s, contentType=%s, size=%d. uploadPath=%s",
                 file3.getName(), fileName, file3.getContentType(), file3.getSize(), uploadPath);
-        request.setAttribute("msg", BaseResponse.ok("文件上传成功!", format));
+        request.setAttribute("msg0", BaseResponse.ok("文件上传成功!", format));
         return "success";
     }
 }

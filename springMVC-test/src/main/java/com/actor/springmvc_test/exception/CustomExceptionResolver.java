@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * description: 异常处理器
  *
- * @author : 李大发
  * date       : 2021/4/18 on 20
  * @version 1.0
  */
@@ -31,7 +30,7 @@ public class CustomExceptionResolver implements HandlerExceptionResolver {
             ce = new CustomException("CustomException未知错误:" + ex.getMessage(), ex);
         }
         ModelAndView mv = new ModelAndView();
-        mv.addObject("errMsg", ce);//错误信息
+        mv.addObject("errMsg0", ce);//错误信息
         mv.setViewName("error");   //跳转error页面
         return mv;
     }

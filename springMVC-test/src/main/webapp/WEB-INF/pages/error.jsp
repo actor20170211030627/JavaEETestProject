@@ -11,6 +11,7 @@
     <title>发成错误咯!</title>
 </head>
 <body>
-    <p>request.errMsg = \${ errMsg } = ${ errMsg }</p>
+    <p>request.errMsg0 = \${ errMsg0 } = ${ errMsg0 }</p>
+    <p>request.errMsg1 = \${ errMsg1 } = ${ errMsg1 }</p>
 </body>
 </html>
