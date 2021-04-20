@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * description: 拦截器
  *
- * @author : 李大发
  * date       : 2021/4/18 on 22
  * @version 1.0
  */
@@ -32,7 +31,7 @@ public class _5InterceptorController {
      *
      * https://www.bilibili.com/video/BV1mE411X7yp?p=202
      * SpringMVC拦截器之拦截器入门代码
-     * @see com.actor.springmvc_test.interceptor.CustomInterceptor
+     * @see com.actor.springmvc_test.interceptor.CustomInterceptor0
      * 1.在springmvc.xml中配置拦截器
      * <!-- 配置拦截器(拦截controller方法) -->
      * <mvn:interceptors>
@@ -54,6 +53,8 @@ public class _5InterceptorController {
      *      5.自定义拦截器的 afterCompletion()方法执行了
      *
      * https://www.bilibili.com/video/BV1mE411X7yp?p=203
+     * SpringMVC拦截器之拦截器接口方法演示
+     * @see com.actor.springmvc_test.interceptor.CustomInterceptor1
      */
     @RequestMapping("/testInterceptor")
     public String testInterceptor() {

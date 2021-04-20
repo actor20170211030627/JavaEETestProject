@@ -3,7 +3,6 @@ package com.actor.springmvc_test.exception;
 /**
  * description: 自定义异常类
  *
- * @author : 李大发
  * date       : 2021/4/18 on 20
  * @version 1.0
  */

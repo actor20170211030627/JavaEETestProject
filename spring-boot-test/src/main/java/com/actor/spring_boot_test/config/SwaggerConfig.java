@@ -16,7 +16,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  *      http://localhost:8080/swagger-ui.html
  *      http://localhost:8080/doc.html (swagger增强版)
  *
- * Author     : 李大发
  * Date       : 2020/2/23 on 15:54
  */
 @Configuration
@@ -35,7 +34,7 @@ public class SwaggerConfig {
                 .title("JavaEE测试项目 Manage Swagger RESTful APIs")
                 .description("JavaEE测试项目 Swagger API 服务")
                 .termsOfServiceUrl("http://swagger.io/")
-                .contact(new Contact("李大发", "https://github.com/actor20170211030627", "1455198886@qq.com"))
+                .contact(new Contact("Actor Lee", "https://github.com/actor20170211030627", "1455198886@qq.com"))
                 .version("1.0")
                 .build();
 

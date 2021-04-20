@@ -13,8 +13,8 @@
     <groupId>com.actor</groupId>
     <artifactId>springMVC-test</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>SpringMVC-test</name>
-    <description>SpringMVC 测试</description>
+    <name>SpringMVC 测试</name>
+    <description>springMVC-test Maven Webapp</description>
     <packaging>war</packaging>
     <url>http://www.example.com</url>
 

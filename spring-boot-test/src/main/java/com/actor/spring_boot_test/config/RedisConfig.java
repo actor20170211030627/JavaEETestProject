@@ -11,7 +11,6 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
  * Description: Redis序列化方式
- * Author     : 李大发
  */
 @Configuration
 public class RedisConfig {

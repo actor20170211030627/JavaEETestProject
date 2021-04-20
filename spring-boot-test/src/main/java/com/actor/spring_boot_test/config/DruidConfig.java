@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Description: 阿里数据库连接池
- * Author     : 李大发
  * Date       : 2020/2/23 on 17:23
  */
 @Configuration

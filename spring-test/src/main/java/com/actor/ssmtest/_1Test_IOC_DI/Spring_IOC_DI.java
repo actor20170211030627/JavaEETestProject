@@ -22,7 +22,6 @@ import org.springframework.core.io.Resource;
  * AOP:
  *   通过Spring的AOP功能, 方便进行面向切面的编程, 许多不容易用传统OOP实现的功能可以通过AOP轻松应付.
  *
- * @author : 李大发
  * date       : 2021/2/25 on 16
  * @version 1.0
  */

@@ -4,7 +4,6 @@ import java.util.Locale;
 
 /**
  * Description: 返回基类
- * Author     : 李大发
  * Date       : 2020/2/23 on 15:28
  */
 public class BaseResult<T> {

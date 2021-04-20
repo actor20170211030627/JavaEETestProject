@@ -7,7 +7,6 @@ import java.util.Date;
 
 /**
  * description: 类的描述
- * author     : 李大发
  * date       : 2020/2/25 on 16:23
  */
 public class PersonDto {

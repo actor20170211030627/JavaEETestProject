@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * description: 异常信息
  *
- * @author : 李大发
  * date       : 2021/4/18 on 17
  * @version 1.0
  */

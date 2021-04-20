@@ -16,7 +16,6 @@ import java.io.IOException;
 /**
  * description: 各种返回类型
  *
- * @author : 李大发
  * date       : 2021/4/15 on 22
  * @version 1.0
  */

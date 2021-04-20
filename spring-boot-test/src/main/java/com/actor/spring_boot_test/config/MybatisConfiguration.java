@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Description: 连接数据库的持久层框架
- * Author     : 李大发
  * Date       : 2020/2/23 on 17:17
  */
 @Configuration

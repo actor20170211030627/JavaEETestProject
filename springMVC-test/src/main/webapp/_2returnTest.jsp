@@ -41,7 +41,8 @@
                 </form>
             </li>
             <li>9.<a href="exception/testException">Exception异常处理</a></li>
-            <li>10.<a href="interceptor/testInterceptor">HandlerInterceptor拦截器</a></li>
+            <li>10.<a href="interceptor/testInterceptor?release=true">HandlerInterceptor拦截器, 放行</a></li>
+            <li>10.<a href="interceptor/testInterceptor?release=false">HandlerInterceptor拦截器, 不放行, 拦截</a></li>
         </ul>
 
         <script>

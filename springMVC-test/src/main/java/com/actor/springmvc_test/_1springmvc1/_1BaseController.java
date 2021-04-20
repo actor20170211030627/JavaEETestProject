@@ -26,7 +26,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/hello")
-@SessionAttributes(value = {"msg"})//将'msg=思思'存入到session域对象中
+@SessionAttributes(value = {"msg0"})//将'msg0=思思'存入到session域对象中
 public class _1BaseController {
 
     /**
@@ -335,12 +335,12 @@ public class _1BaseController {
      * @see SessionAttributes#value() 指定存入的属性名称
      * @see SessionAttributes#types() 指定存入的数据类型
      * 作用: 用于多次执行控制器方法间的参数共享
-     * @see _1BaseController 的 @SessionAttributes("msg") 注解
+     * @see _1BaseController 的 @SessionAttributes("msg0") 注解
      */
     @RequestMapping("/testSessionAttributes")
     public String testSessionAttributes(Model model) {
         //底层会存储到 "Request!!!" 域对象中.
-        model.addAttribute("msg", "思思");
+        model.addAttribute("msg0", "思思");
         model.addAttribute("msg1", "思思1");
         return "success";
     }
@@ -348,9 +348,9 @@ public class _1BaseController {
     @RequestMapping("/getSessionAttributes")
     public String getSessionAttributes(ModelMap modelMap) {
         //从"Session!!!"域对象中取值
-        Object msg = modelMap.getAttribute("msg");
+        Object msg0 = modelMap.getAttribute("msg0");
         Object msg1 = modelMap.getAttribute("msg1");
-        System.out.printf("从\"Session!!!\"域对象中取值, msg=%s, msg1=%s\n", msg, msg1);
+        System.out.printf("从\"Session!!!\"域对象中取值, msg0=%s, msg1=%s\n", msg0, msg1);
         return "success";
     }
     //删掉

@@ -51,7 +51,16 @@
             <!-- 不拦截的具体方法 -->
             <!--<mvn:exclude-mapping path=""/>-->
             <!-- 配置拦截器对象 -->
-            <bean class="com.actor.springmvc_test.interceptor.CustomInterceptor"/>
+            <bean class="com.actor.springmvc_test.interceptor.CustomInterceptor0">
+                <property name="pos" value="0"/>
+            </bean>
+        </mvn:interceptor>
+        <!-- 拦截器2 -->
+        <mvn:interceptor>
+            <mvn:mapping path="/interceptor/*"/>
+            <bean class="com.actor.springmvc_test.interceptor.CustomInterceptor1">
+                <property name="pos" value="1"/>
+            </bean>
         </mvn:interceptor>
     </mvn:interceptors>
 

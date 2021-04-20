@@ -69,7 +69,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  *          示例:
  *              @see #test_extends()
  *
- * @author : 李大发
  * date       : 2021/2/25 on 16
  * @version 1.0
  */

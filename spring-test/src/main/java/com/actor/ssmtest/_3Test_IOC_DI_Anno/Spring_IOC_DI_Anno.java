@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
  * description: 注解方式注入
  *  https://www.bilibili.com/video/BV1mE411X7yp?p=114
  *
- * @author : 李大发
  * date       : 2021/2/25 on 16
  * @version 1.0
  */

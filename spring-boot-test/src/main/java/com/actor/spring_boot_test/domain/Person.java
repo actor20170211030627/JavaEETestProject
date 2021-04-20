@@ -14,7 +14,6 @@ import java.util.Date;
 
 /**
  * description: 类的描述
- * author     : 李大发
  * date       : 2020/2/25 on 11:13
  */
 //@ApiModel
