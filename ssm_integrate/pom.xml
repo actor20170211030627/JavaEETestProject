@@ -26,6 +26,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <!-- 20210420,Github修复漏洞: This automated pull request fixes a security vulnerability, 4.11 => 4.13.1 -->
             <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
