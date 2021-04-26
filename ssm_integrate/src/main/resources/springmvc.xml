@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvn="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <!-- 开启注解扫描, 只扫描Controller -->
+    <context:component-scan base-package="com.actor.ssm_integrate">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- 视图解析器, 用于解析跳转哪个.jsp -->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- 前端控制器, 哪些静态资源不拦截, location: 静态资源地址. mapping: 哪些请求映射. -->
+    <mvn:resources location="/css/" mapping="/css/**"/>
+    <mvn:resources location="/js/" mapping="/js/**"/>
+    <mvn:resources location="/images/" mapping="/images/**"/>
+
+    <!-- 配置"自定义类型转换器" -->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <!-- converters 是一个Set<?> -->
+            <set>
+                <bean class="com.actor.springmvc_test.utils.String2DateConverter"/>
+            </set>
+        </property>
+    </bean>
+
+    <!-- 文件解析器(用于SpringMVC文件上传), 要求id必须是multipartResolver -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 配置文件大小, 单位字节bytes -->
+        <property name="maxUploadSize" value="10485760"/>
+    </bean>
+
+    <!-- 配置异常处理器(跳转到提示页面) -->
+    <bean id="customExceptionResolver" class="com.actor.ssm_integrate.exception.CustomExceptionResolver"/>
+
+    <!-- 配置拦截器(拦截controller方法) -->
+    <mvn:interceptors>
+        <mvn:interceptor>
+            <!-- 要拦截的具体方法, /** 拦截全部.   /hello/* 拦截hello里的所有方法 -->
+            <mvn:mapping path="/interceptor/*"/>
+            <!-- 不拦截的具体方法 -->
+            <!--<mvn:exclude-mapping path=""/>-->
+            <!-- 配置拦截器对象 -->
+            <bean class="com.actor.springmvc_test.interceptor.CustomInterceptor0">
+                <property name="pos" value="0"/>
+            </bean>
+        </mvn:interceptor>
+        <!-- 拦截器2 -->
+        <mvn:interceptor>
+            <mvn:mapping path="/interceptor/*"/>
+            <bean class="com.actor.springmvc_test.interceptor.CustomInterceptor1">
+                <property name="pos" value="1"/>
+            </bean>
+        </mvn:interceptor>
+    </mvn:interceptors>
+
+    <!-- 开启SpringMVC框架注解的支持 -->
+    <mvn:annotation-driven/>
+    <!-- 添加转换器 -->
+    <!--    <mvn:annotation-driven conversion-service="conversionService"/>-->
+</beans>

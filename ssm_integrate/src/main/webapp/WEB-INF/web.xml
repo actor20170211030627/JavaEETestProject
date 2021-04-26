@@ -4,4 +4,49 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <!-- 配置前端控制器 -->
+  <servlet>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!-- 启动服务器就创建 servlet.(默认使用的时候才开始创建) -->
+    <load-on-startup>1</load-on-startup>
+    <!-- 让 servlet 加载 springmvc.xml 配置文件 -->
+    <init-param>
+      <!-- 给 DispatcherServlet 的 contextConfigLocation 属性赋值 -->
+      <param-name>contextConfigLocation</param-name>
+      <!-- 如果写在 WEB-INF 目录下: /WEB-INF/springmvc.xml -->
+      <param-value>classpath:springmvc.xml</param-value>
+    </init-param>
+  </servlet>
+  <!-- 请求映射 -->
+  <servlet-mapping>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <!-- / : 任何请求都会经过这个servlet -->
+    <url-pattern>/</url-pattern> <!-- *.form -->
+  </servlet-mapping>
+
+
+  <!-- 配置解决中文乱码的过滤器 -->
+  <filter>
+    <filter-name>characterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>characterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+
+
+  <!-- 可以让spring容器随项目的启动而创建,随项目的关闭而销毁 -->
+<!--  <listener>-->
+<!--    &lt;!&ndash;         需要导入jar包:spring-web-4.2.4.RELEASE.jar &ndash;&gt;-->
+<!--    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+<!--  </listener>-->
+
 </web-app>

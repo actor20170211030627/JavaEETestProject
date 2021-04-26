@@ -13,7 +13,7 @@ import java.util.List;
  * date       : 2021/4/20 on 22
  * @version 1.0
  */
-@Controller
+@Controller("account")
 public class AccountController {
 
     @Autowired
@@ -30,8 +30,12 @@ public class AccountController {
      *    还有controller, service, dao等
      *
      * https://www.bilibili.com/video/BV1mE411X7yp?p=206
+     * 在resources右击 -> New -> Xml Configuration File -> Spring Config -> applicationContext
+     * 写测试类, log4j测试(可要配置文件)
+     *
+     * https://www.bilibili.com/video/BV1mE411X7yp?p=207
+     * 08:32
      */
-
     public List<Account> findAll() {
         return accountService.findAll();
     }

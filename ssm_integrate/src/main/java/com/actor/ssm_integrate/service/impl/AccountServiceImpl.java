@@ -2,6 +2,7 @@ package com.actor.ssm_integrate.service.impl;
 
 import com.actor.ssm_integrate.domain.Account;
 import com.actor.ssm_integrate.service.AccountService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * date       : 2021/4/25 on 23
  * @version 1.0
  */
+@Service("account")
 public class AccountServiceImpl implements AccountService {
     @Override
     public List<Account> findAll() {
