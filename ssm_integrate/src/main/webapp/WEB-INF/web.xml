@@ -5,7 +5,8 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 
-  <!-- 配置前端控制器 -->
+
+  <!-- 配置"前端控制器" -->
   <servlet>
     <servlet-name>dispatcherServlet</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -27,7 +28,7 @@
   </servlet-mapping>
 
 
-  <!-- 配置解决中文乱码的过滤器 -->
+  <!-- 配置解决中文乱码的"过滤器" -->
   <filter>
     <filter-name>characterEncodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -42,11 +43,17 @@
   </filter-mapping>
 
 
-
-  <!-- 可以让spring容器随项目的启动而创建,随项目的关闭而销毁 -->
-<!--  <listener>-->
-<!--    &lt;!&ndash;         需要导入jar包:spring-web-4.2.4.RELEASE.jar &ndash;&gt;-->
-<!--    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
-<!--  </listener>-->
+  <!-- 配置Spring的"监听器", 可以让spring容器随项目的启动而创建, 随项目的关闭而销毁.
+    默认只加载 WEB-INF/applicationContext.xml 配置文件, 所以需要额外"设置配置文件的路径"
+   -->
+  <listener>
+    <!-- 需要导入jar包:spring-web-5.0.2.RELEASE.jar -->
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <!-- 设置配置文件的路径 -->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
 
 </web-app>

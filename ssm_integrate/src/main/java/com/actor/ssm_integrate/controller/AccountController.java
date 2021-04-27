@@ -4,6 +4,7 @@ import com.actor.ssm_integrate.domain.Account;
 import com.actor.ssm_integrate.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -13,7 +14,8 @@ import java.util.List;
  * date       : 2021/4/20 on 22
  * @version 1.0
  */
-@Controller("account")
+@Controller
+@RequestMapping("/account")
 public class AccountController {
 
     @Autowired
@@ -30,16 +32,25 @@ public class AccountController {
      *    还有controller, service, dao等
      *
      * https://www.bilibili.com/video/BV1mE411X7yp?p=206
+     * ssm整合之编写Spring框架
      * 在resources右击 -> New -> Xml Configuration File -> Spring Config -> applicationContext
      * 写测试类, log4j测试(可要配置文件)
      *
      * https://www.bilibili.com/video/BV1mE411X7yp?p=207
-     * 08:32
+     * ssm整合之编写SpringMVC框架
+     *
+     * https://www.bilibili.com/video/BV1mE411X7yp?p=208
+     * ssm整合之Spring整合SpringMVC的框架
+     *
+     * https://www.bilibili.com/video/BV1mE411X7yp?p=209
+     * ssm整合之编写MyBatis框架
      */
+    @RequestMapping("/findAll")
     public List<Account> findAll() {
         return accountService.findAll();
     }
 
+    @RequestMapping("/saveAccount")
     public void saveAccount(Account account) {
         accountService.saveAccount(account);
     }

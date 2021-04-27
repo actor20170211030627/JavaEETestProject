@@ -17,12 +17,12 @@ import java.util.List;
 public class AccountServiceImpl implements AccountService {
     @Override
     public List<Account> findAll() {
-        System.out.println("查询所有");
+        System.out.println("AccountServiceImpl: 查询所有");
         return null;
     }
 
     @Override
     public void saveAccount(Account account) {
-        System.out.println("查询所有");
+        System.out.println("AccountServiceImpl: 查询所有");
     }
 }
