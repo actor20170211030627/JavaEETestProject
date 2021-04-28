@@ -101,8 +101,16 @@ public class _3FileController {
      *
      * https://www.bilibili.com/video/BV1mE411X7yp?p=195
      * 在springmvc.xml中配置 文件解析器:
+     * 1.好像也需要commons-fileupload支持
+     * <dependency>
+     *     <groupId>commons-fileupload</groupId>
+     *     <artifactId>commons-fileupload</artifactId>
+     *     <version>1.4</version>
+     * </dependency>
+     *
      * <!-- 文件解析器(用于SpringMVC文件上传), 要求id必须是multipartResolver -->
      * <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+     *     <property name="defaultEncoding" value="UTF-8"/>
      *     <!-- 配置文件大小, 单位字节bytes -->
      *     <property name="maxUploadSize" value="10485760"/>
      * </bean>

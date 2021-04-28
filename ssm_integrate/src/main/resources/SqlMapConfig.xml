@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTO Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--
+    注意: 这个xml
+    仅用于测试, 后面p=211视频会在applicationContext.xml中整合Mybatis
+-->
+
+<configuration>
+    <environments default="mysql"><!-- 使用哪一个环境 -->
+        <environment id="mysql">
+            <transactionManager type="JDBC"/><!-- 事务类型 -->
+            <dataSource type="POOLED"><!-- 应用连接池： POOLED/UNPOOLED -->
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+
+<!--                <property name="url" value="jdbc:mysql://localhost:3306/ssm_test"/>-->
+                <!-- 可省略localhost:3306 -->
+                <property name="url" value="jdbc:mysql:///ssm_test"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <!-- 1.引入映射配置文件 -->
+<!--        <mapper resource="com/actor/ssm_integrate/dao/xxxm.xml"/>-->
+
+        <!-- 2.但是这个项目目前使用的是注解 -->
+        <!-- 2.1.配置具体接口(麻烦) -->
+<!--        <mapper class="com.actor.ssm_integrate.dao.AccountDao"/>-->
+        <!-- 2.2.该包下所有的dao接口都可以使用 -->
+        <package name="com.actor.ssm_integrate.dao"/>
+    </mappers>
+</configuration>

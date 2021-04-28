@@ -44,10 +44,24 @@ public class AccountController {
      *
      * https://www.bilibili.com/video/BV1mE411X7yp?p=209
      * ssm整合之编写MyBatis框架
+     * 1.写 {@link com.actor.ssm_integrate.dao.AccountDao}
+     * 2.写 resources/SqlMapConfig.xml(仅用于测试, 后面p=211视频会在applicationContext.xml中整合Mybatis)
+     *
+     * https://www.bilibili.com/video/BV1mE411X7yp?p=210
+     * 测试保存Account
+     *
+     * https://www.bilibili.com/video/BV1mE411X7yp?p=211
+     * ssm整合之Spring整合Mybatis框架
+     * 1.在 applicationContext.xml 中配置整合Mybatis
+     * 8:38
      */
     @RequestMapping("/findAll")
-    public List<Account> findAll() {
-        return accountService.findAll();
+    public /*List<Account> */void findAll() {
+        List<Account> all = accountService.findAll();
+        for (Account account : all) {
+            System.out.println(account);
+        }
+//        return all;
     }
 
     @RequestMapping("/saveAccount")
