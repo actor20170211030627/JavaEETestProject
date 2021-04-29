@@ -4,6 +4,7 @@ import com.actor.ssm_integrate.domain.Account;
 import com.actor.ssm_integrate.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -53,19 +54,20 @@ public class AccountController {
      * https://www.bilibili.com/video/BV1mE411X7yp?p=211
      * ssm整合之Spring整合Mybatis框架
      * 1.在 applicationContext.xml 中配置整合Mybatis
-     * 8:38
+     *
+     * https://www.bilibili.com/video/BV1mE411X7yp?p=212
      */
     @RequestMapping("/findAll")
-    public /*List<Account> */void findAll() {
+    public String findAll(Model model) {
         List<Account> all = accountService.findAll();
-        for (Account account : all) {
-            System.out.println(account);
-        }
-//        return all;
+        model.addAttribute("msg0", all);
+        return "success";
     }
 
     @RequestMapping("/saveAccount")
-    public void saveAccount(Account account) {
+    public String saveAccount(Account account, Model model) {
         accountService.saveAccount(account);
+        model.addAttribute("account", account);
+        return "success";
     }
 }

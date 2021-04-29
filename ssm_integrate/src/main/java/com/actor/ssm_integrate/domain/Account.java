@@ -1,5 +1,7 @@
 package com.actor.ssm_integrate.domain;
 
+import com.actor.ssm_integrate.utils.JacksonUtils;
+
 import java.io.Serializable;
 
 /**
@@ -39,10 +41,6 @@ public class Account implements Serializable {
 
     @Override
     public String toString() {
-        return "Account{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", money=" + money +
-                '}';
+        return JacksonUtils.object2Json(this);
     }
 }

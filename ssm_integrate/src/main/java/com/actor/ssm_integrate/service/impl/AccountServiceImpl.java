@@ -23,13 +23,11 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public List<Account> findAll() {
-        System.out.println("AccountServiceImpl: 查询所有");
         return accountDao.findAll();
     }
 
     @Override
     public void saveAccount(Account account) {
-        System.out.println("AccountServiceImpl: 查询所有");
         accountDao.saveAccount(account);
     }
 }

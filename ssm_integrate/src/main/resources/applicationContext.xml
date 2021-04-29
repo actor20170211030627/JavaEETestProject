@@ -15,11 +15,11 @@
     <!-- Spring整合Mybatis配置 -->
     <!-- 配置连接池 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
 
 <!--        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/ssm_test"/>-->
         <!-- 可省略localhost:3306 -->
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/ssm_test"/>
+        <property name="jdbcUrl" value="jdbc:mysql:///ssm_test?characterEncoding=UTF-8&amp;serverTimezone=UTC"/>
         <property name="user" value="root"/>
         <property name="password" value="123456"/>
     </bean>

@@ -13,11 +13,11 @@
         <environment id="mysql">
             <transactionManager type="JDBC"/><!-- 事务类型 -->
             <dataSource type="POOLED"><!-- 应用连接池： POOLED/UNPOOLED -->
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
 
 <!--                <property name="url" value="jdbc:mysql://localhost:3306/ssm_test"/>-->
                 <!-- 可省略localhost:3306 -->
-                <property name="url" value="jdbc:mysql:///ssm_test"/>
+                <property name="url" value="jdbc:mysql:///ssm_test?characterEncoding=UTF-8&amp;serverTimezone=UTC"/>
                 <property name="username" value="root"/>
                 <property name="password" value="123456"/>
             </dataSource>

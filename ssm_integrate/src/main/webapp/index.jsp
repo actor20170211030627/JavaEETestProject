@@ -13,26 +13,27 @@
     </head>
     <body>
         <ul>
-            <li><button onclick="findAll('account/findAll')">1.findAll(按F12查看结果)</button></li>
-            <li>2.新增Account
-                <form action="account/saveAccount" method="post">
-                    姓名(name): <input type="text" name="name" />
+            <li>1.<a href="account/findAll">findAll(查询所有)</a></li>
+            <li>
+                <form action="account/saveAccount" method="post" id="form_saveAccount">
+                    2.姓名(name): <input type="text" name="name"/>
                     金额(money): <input type="text" name="money" />
-                    <input type="submit" value="提交" />
+                    <input type="submit" value="新增Account"/>
                 </form>
             </li>
         </ul>
 
         <script>
-            /*查询所有
-            * data: JSON.stringify(user),
-                    contentType: "application/json;charset=UTF-8"
-                    * */
-            function findAll(url) {
+            function saveAccount(url, name, money) {
+                var account = {
+                    "name": name,
+                    "money": money
+                };
                 $.ajax({
                     type: "POST",
                     url: url,
-
+                    data: JSON.stringify(account),
+                    contentType: "application/json;charset=UTF-8"
                 });
             }
         </script>
