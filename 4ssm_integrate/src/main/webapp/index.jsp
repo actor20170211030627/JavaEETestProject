@@ -21,6 +21,7 @@
                     <input type="submit" value="新增Account"/>
                 </form>
             </li>
+            <li>3.<a href="account/testSaveError">测试事务, 制造报错</a></li>
         </ul>
 
         <script>

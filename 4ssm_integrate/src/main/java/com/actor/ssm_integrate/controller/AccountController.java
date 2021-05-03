@@ -56,6 +56,25 @@ public class AccountController {
      * 1.在 applicationContext.xml 中配置整合Mybatis
      *
      * https://www.bilibili.com/video/BV1mE411X7yp?p=212
+     * <!-- 配置Spring框架声明式事务管理 -->
+     * <!--1.配置事务管理器-->
+     * <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+     *     <property name="dataSource" ref="dataSource"/>
+     * </bean>
+     * <!--2.配置事务通知-->
+     * <tx:advice id="txAdvice" transaction-manager="transactionManager">
+     *     <tx:attributes>
+     *         <!--find开头, 只读的事务-->
+     *         <tx:method name="find*" read-only="true"/>
+     *         <!--隔离级别-->
+     *         <tx:method name="*" isolation="DEFAULT"/>
+     *         <!-- ... -->
+     *     </tx:attributes>
+     * </tx:advice>
+     * <!--3.配置AOP增强-->
+     * <aop:config>
+     *     <aop:advisor advice-ref="txAdvice" pointcut="execution(public * com.actor.ssm_integrate.service.impl.*ServiceImpl.*(..))" />
+     * </aop:config>
      */
     @RequestMapping("/findAll")
     public String findAll(Model model) {
@@ -67,6 +86,17 @@ public class AccountController {
     @RequestMapping("/saveAccount")
     public String saveAccount(Account account, Model model) {
         accountService.saveAccount(account);
+        model.addAttribute("account", account);
+        return "success";
+    }
+    //测试事务, 制造报错
+    @RequestMapping("/testSaveError")
+    public String testSaveError(Model model) {
+        Account account = new Account();
+        account.setName("测试事务, 制造报错");
+        account.setMoney(123.4567D);
+        accountService.saveAccount(account);
+        int i = 1 / 0;
         model.addAttribute("account", account);
         return "success";
     }

@@ -13,10 +13,12 @@
 
     <!--模块-->
     <modules>
+        <module>1mybatis_test</module>
+        <module>2spring-test</module>
+        <module>3springMVC-test</module>
+        <module>4ssm_integrate</module>
+        <module>5oracle</module>
         <module>spring-boot-test</module>
-        <module>spring-test</module>
-        <module>springMVC-test</module>
-        <module>ssm_integrate</module>
     </modules>
 
     <properties>
