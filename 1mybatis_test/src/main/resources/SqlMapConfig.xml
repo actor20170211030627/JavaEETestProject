@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dto/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- 配置 properties -->
+    <!-- 1.直接配置
+        <properties>
+            <property name="driver" value="com.mysql.jdbc.Driver"/>
+            <property name="url" value="jdbc:mysql://localhost:3306/eesy_mybatis"/>
+            <property name="username" value="root"/>
+            <property name="password" value="1234"/>
+        </properties> -->
+
+    <!-- 2.通过属性引用外部配置文件信息 -->
+    <!-- 一般不用 url -->
+    <!--<properties url="file:///F:workspace_javaee/projectname/src/main/resource/jdbcConfig.properties"/> -->
+    <properties resource="jdbcConfig.properties"/>
+
+    <!-- p28 配置别名, 只能配置 domain 中类的别名: https://www.bilibili.com/video/BV1mE411X7yp?p=38 -->
+    <!-- 感觉没什么用 -->
+    <typeAliases>
+        <!-- 1.系统已经配置了一些别名, 例: -->
+        <!-- <typeAlias type="java.lang.Integer" alias="int"/> -->
+        <!-- <typeAlias type="java.lang.Integer" alias="Integer"/> -->
+
+        <!-- 2.自定义别名, 这样在 IUserDao.xml 中可写: user / uSeR / USER / com.xx.domain.User, 不区分大小写 -->
+        <!-- <typeAlias type="com.actor.mybatis_test.domain.User" alias="user"/> -->
+
+        <!-- 3.指定要配置别名的包, 当指定后, 该包下的实体类都会注册别名, 类名=别名, 并且别名不区分大小写 -->
+        <package name="com.actor.mybatis_test.domain"/>
+    </typeAliases>
+
+    <!-- 配置环境 -->
+    <environments default="mysql">
+        <!-- 配置mysql的环境 -->
+        <environment id="mysql">
+            <!-- 配置事务类型 -->
+            <transactionManager type="JDBC"/>
+            <!-- 配置数据源 -->
+            <dataSource type="POOLED">
+                <!-- 配置连接数据库的基本信息 -->
+<!--                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>-->
+<!--                <property name="url" value="jdbc:mysql://localhost:3306/mybatis_test?characterEncoding=UTF-8&amp;serverTimezone=UTC"/>-->
+<!--                <property name="username" value="root"/>-->
+<!--                <property name="password" value="123456"/>-->
+
+                <!-- 1.value 可以直接写上方 value 的值 -->
+                <!-- <property name="driver" value="${driver}"/> -->
+                <!-- <property name="url" value="${url}"/> -->
+                <!-- <property name="username" value="${username}"/> -->
+                <!-- <property name="password" value="${password}"/> -->
+
+                <!-- 2.由于 resource 引入的 properties 是 jdbc. 开头, 所以下方要加 .jdbc -->
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 指定映射配置文件位置, 映射配置文件指的是每个dao独立的配置文件 -->
+    <mappers>
+        <!-- 这儿 url 也一般不这样用 -->
+        <!--<mapper url="file:///....../IUserDao.xml"/>-->
+
+        <!-- 指定mapper, XxxDao.xml和XxxDao.java可不同名 -->
+        <!--<mapper resource="com/actor/mybatis_test/dao/IUserDao.xml"/>-->
+
+        <!-- 1.使用mapper形式: 如果XxxDao.xml和XxxDao.java同名, 也可这样写 -->
+        <!-- 2.使用@Select形式, 必须这么写 -->
+<!--        <mapper class="com.actor.mybatis_test.dao.IUserDao"/>-->
+
+        <!-- package 标签用于指定 dao接口 所在的包, 当指定完了之后, 就不需要写 mapper 以及 resource 或者 class 了
+             1.XxxDao.xml和XxxDao.java必须同名, 否则报错: 某个方法找不到
+         -->
+        <package name="com.actor.mybatis_test.dao"/>
+    </mappers>
+</configuration>
