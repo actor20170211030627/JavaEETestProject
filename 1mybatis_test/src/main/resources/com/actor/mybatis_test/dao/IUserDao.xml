@@ -95,4 +95,46 @@
     <select id="findUserByVo" parameterType="com.actor.mybatis_test.vo.QueryVo" resultMap="userMap">
         select * from user where username like #{user.userName};
     </select>
+
+
+    <!-- </if>标签, 条件查询 where 1=1 有注入问题 -->
+    <select id="findUserByCondition1" parameterType="com.actor.mybatis_test.domain.User" resultMap="userMap">
+        select * from user where 1=1
+        <if test="user.userName != null and user.userName != ''">
+            and username like #{user.userName}
+        </if>
+        <if test="user.userSex != null and user.userSex != ''">
+            and sex = #{user.userSex}
+        </if>
+    </select>
+    <!-- <where>标签 -->
+    <select id="findUserByCondition2" parameterType="com.actor.mybatis_test.domain.User" resultMap="userMap">
+        select * from user
+        <where>
+            <if test="user.userName != null and user.userName != ''">
+                and username like #{user.userName}
+            </if>
+            <if test="user.userSex != null and user.userSex != ''">
+                and sex = #{user.userSex}
+            </if>
+        </where>
+    </select>
+
+    <!-- <foreach> 和 <sql> 标签 -->
+    <select id="findUserByIds" parameterType="com.actor.mybatis_test.vo.QueryVo" resultMap="userMap">
+        select * from user
+        <where>
+        <!-- 可以写成
+             ids.size > 0,
+             ids.size() > 0,
+             !ids.isEmpty(),
+             !ids.isEmpty,
+             !ids.isempty -->
+            <if test="vo.ids != null and !vo.ids.isEmpty()">
+                <foreach collection="vo.ids" open="and id in(" close=")" item="item" separator="," index="position">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
 </mapper>

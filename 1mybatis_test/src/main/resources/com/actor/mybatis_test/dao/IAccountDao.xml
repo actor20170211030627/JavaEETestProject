@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dto/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.actor.mybatis_test.dao.IAccountDao">
+
+    <!-- Account里面有User -->
+    <resultMap id="accountUserMap" type="com.actor.mybatis_test.domain.AccountUser">
+        <id property="id" column="id"/>
+        <result property="uid" column="uid"/>
+        <result property="money" column="money"/>
+        <!-- 绑定User, uid: 通过uid获取.   javaType: 封装到哪个对象(可不写) -->
+        <association property="user" column="uid" javaType="com.actor.mybatis_test.domain.User">
+            <!-- 注意: 这儿要写uid, 不能写id, 否则查出来的是Account的<id column="id"/>的值... -->
+            <id property="userId" column="uid"/>
+            <result property="userAge" column="age"/>
+            <result property="userName" column="username"/>
+            <result property="userAddress" column="address"/>
+            <result property="userSex" column="sex"/>
+            <result property="userBirthday" column="birthday"/>
+        </association>
+    </resultMap>
+
+    <resultMap id="userAccountsMap" type="com.actor.mybatis_test.domain.UserAccounts">
+        <!-- 主键字段的对应, 如果实体是 userId, 对应的数据库是 id, 需要这样配 -->
+        <id property="userId" column="id"/>
+        <!-- 非主键字段的对应 -->
+        <result property="userAge" column="age"/>
+        <result property="userName" column="username"/>
+        <result property="userAddress" column="address"/>
+        <result property="userSex" column="sex"/>
+        <result property="userBirthday" column="birthday"/>
+        <!-- 配置User对象中account集合的映射, ofType: 集合类型 -->
+        <collection property="accounts" ofType="com.actor.mybatis_test.domain.Account">
+            <!-- 注意: 由于user数据库也有个id, 所以account这儿的column不能再写id, 应该配置查询语句成 renamedAccountId -->
+            <id property="id" column="renamedAccountId"/>
+            <id property="uid" column="uid"/>
+            <id property="money" column="money"/>
+        </collection>
+    </resultMap>
+
+
+    <select id="findAll" resultType="com.actor.mybatis_test.domain.Account">
+        select * from account
+    </select>
+
+    <!-- 查询所有账号, 带有User用户的id, name, address -->
+    <select id="findAllAccount1" resultType="com.actor.mybatis_test.dto.AccountDto">
+        select a.*, u.id as uid, u.username, u.address from Account a, user u where a.uid = u.id;
+    </select>
+
+    <!-- 查询所有Account, 并把对应的User查出来 -->
+    <select id="findAccount2" resultMap="accountUserMap">
+        select a.*, u.* from Account a, user u where a.uid = u.id;
+    </select>
+
+    <!-- 查询所有User列表, 并把每个User对应的所以Account一起查出来 -->
+    <select id="findAllUsers1" resultMap="userAccountsMap">
+        <!-- 这儿account的id 要 as 成: renamedAccountId -->
+        select *, a.*, a.ID as renamedAccountId from user u LEFT OUTER JOIN account a ON a.uid = u.id;
+    </select>
+</mapper>

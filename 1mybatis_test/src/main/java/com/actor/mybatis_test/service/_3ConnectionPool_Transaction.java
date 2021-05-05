@@ -1,8 +1,9 @@
-package com.actor.mybatis_test;
+package com.actor.mybatis_test.service;
 
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.datasource.unpooled.UnpooledDataSource;
 import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 
 /**
  * description: 连接池 & 事务
@@ -10,7 +11,7 @@ import org.apache.ibatis.session.SqlSession;
  * date       : 2021/5/4 on 23
  * @version 1.0
  */
-public class _3CollectionPool {
+public class _3ConnectionPool_Transaction {
     /**
      * https://www.bilibili.com/video/BV1mE411X7yp?p=39
      * 今日课程内容介绍
@@ -44,10 +45,7 @@ public class _3CollectionPool {
      *  4.解决办法: 四种隔离级别
      *
      * mybatis中的事务: 通过sqlsession对象的commit()和rollback()实现事务的提交和回滚
-     * @see org.apache.ibatis.session.SqlSessionFactory#openSession(boolean) //是否自动提交事务, 默认false
-     * 如果打开自动提交, 就不用再手动提交: {@link SqlSession#commit()}
-     *
-     * https://www.bilibili.com/video/BV1mE411X7yp?p=45
-     * mybatis中的动态sql语句-if标签
+     * @see SqlSessionFactory#openSession(boolean)  //是否自动提交事务, 默认false
+     * @see SqlSession#commit()                     //如果打开自动提交, 就不用再手动提交
      */
 }

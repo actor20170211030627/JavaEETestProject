@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dto/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.actor.mybatis_test.dao.IRoleDao">
+
+    <resultMap id="roleMap" type="com.actor.mybatis_test.domain.Role">
+        <id property="roleId" column="id"/>
+        <result property="roleName" column="ROLE_NAME"/>
+        <result property="roleDesc" column="ROLE_DESC"/>
+    </resultMap>
+    <resultMap id="roleUsersMap" type="com.actor.mybatis_test.domain.RoleUsers">
+        <id property="roleId" column="id"/>
+        <result property="roleName" column="ROLE_NAME"/>
+        <result property="roleDesc" column="ROLE_DESC"/>
+        <!-- 一个角色可包含多个用户 -->
+        <collection property="users" ofType="com.actor.mybatis_test.domain.User">
+            <id property="userId" column="renamedUserId"/>
+            <result property="userAge" column="age"/>
+            <result property="userName" column="username"/>
+            <result property="userAddress" column="address"/>
+            <result property="userSex" column="sex"/>
+            <result property="userBirthday" column="birthday"/>
+        </collection>
+    </resultMap>
+    <resultMap id="userRolesMap" type="com.actor.mybatis_test.domain.UserRoles">
+        <id property="userId" column="id"/>
+        <result property="userAge" column="age"/>
+        <result property="userName" column="username"/>
+        <result property="userAddress" column="address"/>
+        <result property="userSex" column="sex"/>
+        <result property="userBirthday" column="birthday"/>
+        <!-- 一个角色可包含多个用户 -->
+        <collection property="roles" ofType="com.actor.mybatis_test.domain.Role">
+            <id property="roleId" column="renamedRoleId"/>
+            <result property="roleName" column="ROLE_NAME"/>
+            <result property="roleDesc" column="ROLE_DESC"/>
+        </collection>
+    </resultMap>
+
+
+    <select id="findAll" resultMap="roleMap">
+        select * from role
+    </select>
+
+    <!-- 查出所有角色, 一个角色可包含多个用户 -->
+    <select id="findAllRoleInfos" resultMap="roleUsersMap">
+        select r.*, u.*, u.id as renamedUserId from role r LEFT OUTER JOIN user_role ur ON r.id = ur.rid
+        LEFT OUTER JOIN user u ON u.id = ur.uid
+    </select>
+
+    <!-- 查出所有用户, 一个用户可包含多个角色 -->
+    <select id="findAllUserInfos" resultMap="userRolesMap">
+        select u.*, r.*, r.id as renamedRoleId from user u LEFT OUTER JOIN user_role ur ON u.id = ur.uid
+        LEFT OUTER JOIN role r ON r.id = ur.rid
+    </select>
+</mapper>

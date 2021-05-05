@@ -2,6 +2,8 @@ package com.actor.mybatis_test.vo;
 
 import com.actor.mybatis_test.domain.User;
 
+import java.util.List;
+
 /**
  * description: 用于条件查询
  *
@@ -11,4 +13,6 @@ import com.actor.mybatis_test.domain.User;
 public class QueryVo {
 
     public User user;
+
+    public List<Integer> ids;
 }

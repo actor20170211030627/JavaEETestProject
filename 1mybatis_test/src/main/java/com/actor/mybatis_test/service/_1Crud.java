@@ -47,25 +47,9 @@ import java.util.List;
  * 	https://www.bilibili.com/video/BV1mE411X7yp?p=4
  * 	https://www.bilibili.com/video/BV1mE411X7yp?p=5
  * 	mybatis环境搭建-前期准备
- * 	CREATE DATABASE IF NOT EXISTS `mybatis_test`;
- *  USE `mybatis_test`;
- *
- *  CREATE TABLE IF NOT EXISTS `user` (
- *   `id` int(11) NOT NULL AUTO_INCREMENT,
- *   `username` varchar(32) NOT NULL COMMENT '用户名称',
- *   `birthday` datetime DEFAULT NULL COMMENT '生日',
- *   `sex` char(1) DEFAULT NULL COMMENT '性别',
- *   `address` varchar(256) DEFAULT NULL COMMENT '地址',
- *   PRIMARY KEY (`id`)
- * ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='用户';
- *
- * INSERT INTO `user` (`id`, `username`, `birthday`, `sex`, `address`) VALUES
- * 	(1, '老王', '2018-02-27 22:52:29', '男', '北京'),
- * 	(2, '小二王', '2018-02-27 22:52:29', '女', '北京金燕龙'),
- * 	(3, '小二王', '2018-02-27 22:52:29', '女', '北京金燕龙'),
- * 	(4, '传智播客', '2018-02-27 22:52:29', '男', '背景金燕龙'),
- * 	(5, '老王', '2018-02-27 22:52:29', '男', '北京'),
- * 	(6, '小马宝莉', '2018-02-27 22:52:29', '女', '北京修正');
+ * 	1.创建数据库 mybatis_test
+ * 	2.创建表 user
+ * @see User 这里面有创建语句
  *
  * https://www.bilibili.com/video/BV1mE411X7yp?p=6
  * mybatis的环境搭建

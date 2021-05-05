@@ -65,4 +65,17 @@ public interface IUserDao {
 
     //根据queryVo中的条件查询用户
     List<User> findUserByVo(QueryVo vo);
+
+
+    /**
+     * 根据传入参数条件查询
+     */
+    @Deprecated
+    List<User> findUserByCondition1(@Param("user") User user);
+    List<User> findUserByCondition2(@Param("user") User user);
+
+    /**
+     * 根据多个id查询Users
+     */
+    List<User> findUserByIds(@Param("vo") QueryVo vo);
 }
