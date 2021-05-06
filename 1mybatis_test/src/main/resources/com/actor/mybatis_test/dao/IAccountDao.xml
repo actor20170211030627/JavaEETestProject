@@ -47,17 +47,34 @@
 
     <!-- 查询所有账号, 带有User用户的id, name, address -->
     <select id="findAllAccount1" resultType="com.actor.mybatis_test.dto.AccountDto">
-        select a.*, u.id as uid, u.username, u.address from Account a, user u where a.uid = u.id;
+        select a.*, u.id as uid, u.username, u.address from account a, user u where a.uid = u.id;
     </select>
 
     <!-- 查询所有Account, 并把对应的User查出来 -->
     <select id="findAccount2" resultMap="accountUserMap">
-        select a.*, u.* from Account a, user u where a.uid = u.id;
+        select a.*, u.* from account a, user u where a.uid = u.id;
     </select>
 
     <!-- 查询所有User列表, 并把每个User对应的所以Account一起查出来 -->
     <select id="findAllUsers1" resultMap="userAccountsMap">
         <!-- 这儿account的id 要 as 成: renamedAccountId -->
         select *, a.*, a.ID as renamedAccountId from user u LEFT OUTER JOIN account a ON a.uid = u.id;
+    </select>
+
+
+
+    <resultMap id="accountUserMapDelay" type="com.actor.mybatis_test.domain.AccountUser">
+        <id property="id" column="id"/>
+        <result property="uid" column="uid"/>
+        <result property="money" column="money"/>
+
+        <!-- select属性指定的内容: 延迟加载查询用户的唯一标志 -->
+        <!-- 延迟加载的时候, column必写 -->
+        <association property="user" column="uid" javaType="com.actor.mybatis_test.domain.User"
+                     select="com.actor.mybatis_test.dao.IUserDao.findById"/>
+    </resultMap>
+    <!-- 一对一查询, 延迟加载 -->
+    <select id="findAllAccountDelay" resultMap="accountUserMap">
+        select * from account
     </select>
 </mapper>

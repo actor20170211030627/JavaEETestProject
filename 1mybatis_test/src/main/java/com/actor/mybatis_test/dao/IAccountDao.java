@@ -27,4 +27,11 @@ public interface IAccountDao {
     List<AccountUser> findAccount2();
 
     List<UserAccounts> findAllUsers1();
+
+
+    /**
+     * 一对一查询, 延迟加载
+     * @see com.actor.mybatis_test.service._7Load_Delay
+     */
+    List<AccountUser> findAllAccountDelay();
 }

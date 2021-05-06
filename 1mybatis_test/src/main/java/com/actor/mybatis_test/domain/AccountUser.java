@@ -18,4 +18,13 @@ public class AccountUser extends Account {
     public String toString() {
         return JacksonUtils.object2Json(this);
     }
+
+
+    public String toString2() {
+        return "AccountUser{" +
+                "id=" + id +
+                ", uid=" + uid +
+                ", money=" + money +
+                '}';
+    }
 }
