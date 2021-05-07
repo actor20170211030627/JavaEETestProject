@@ -34,4 +34,10 @@ public interface IAccountDao {
      * @see com.actor.mybatis_test.service._7Load_Delay
      */
     List<AccountUser> findAllAccountDelay();
+
+    /**
+     * 根据用户id查询账户信息
+     * @return
+     */
+    List<Account> findAccountsByUserId(int userId);
 }

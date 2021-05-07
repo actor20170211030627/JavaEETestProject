@@ -63,6 +63,9 @@
 
 
 
+    <!-- ========================================================= -->
+    <!-- ======================== 延迟加载 ======================== -->
+    <!-- ========================================================= -->
     <resultMap id="accountUserMapDelay" type="com.actor.mybatis_test.domain.AccountUser">
         <id property="id" column="id"/>
         <result property="uid" column="uid"/>
@@ -74,7 +77,11 @@
                      select="com.actor.mybatis_test.dao.IUserDao.findById"/>
     </resultMap>
     <!-- 一对一查询, 延迟加载 -->
-    <select id="findAllAccountDelay" resultMap="accountUserMap">
+    <select id="findAllAccountDelay" resultMap="accountUserMapDelay">
         select * from account
+    </select>
+
+    <select id="findAccountsByUserId" resultType="com.actor.mybatis_test.domain.Account">
+        select * from account where uid = #{userId}
     </select>
 </mapper>

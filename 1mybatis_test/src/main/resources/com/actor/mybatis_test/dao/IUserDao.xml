@@ -137,4 +137,28 @@
             </if>
         </where>
     </select>
+
+
+
+    <!-- ========================================================= -->
+    <!-- ======================== 延迟加载 ======================== -->
+    <!-- ========================================================= -->
+    <resultMap id="userAccountsMapDelay" type="com.actor.mybatis_test.domain.UserAccounts">
+        <id property="userId" column="id"/>
+        <!-- 非主键字段的对应 -->
+        <result property="userAge" column="age"/>
+        <result property="userName" column="username"/>
+        <result property="userAddress" column="address"/>
+        <result property="userSex" column="sex"/>
+        <result property="userBirthday" column="birthday"/>
+
+        <!-- select属性指定的内容: 延迟加载查询用户的唯一标志 -->
+        <!-- 延迟加载的时候, column必写 -->
+        <collection property="accounts" column="userId" ofType="com.actor.mybatis_test.domain.Account"
+                    select="com.actor.mybatis_test.dao.IAccountDao.findAccountsByUserId"/>
+    </resultMap>
+    <!-- 一对多查询, 延迟加载 -->
+    <select id="findUserDelay" resultMap="userAccountsMapDelay">
+        select * from user where id = #{id}
+    </select>
 </mapper>

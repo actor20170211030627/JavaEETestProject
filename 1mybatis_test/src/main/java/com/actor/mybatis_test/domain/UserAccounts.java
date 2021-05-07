@@ -14,10 +14,34 @@ import java.util.List;
 public class UserAccounts extends User {
 
     //一个用户多个账户
-    public List<Account> accounts;
+    private List<Account> accounts;
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
 
     @Override
     public String toString() {
         return JacksonUtils.object2Json(this);
+    }
+
+//    public String toString2() {
+//        return super.toString();
+//    }
+
+    public String toString2() {
+        return "UserAccounts{" +
+                "accounts=" + accounts +
+                ", userId=" + userId +
+                ", userAge=" + userAge +
+                ", userName='" + userName + '\'' +
+                ", userBirthday=" + userBirthday +
+                ", userSex='" + userSex + '\'' +
+                ", userAddress='" + userAddress + '\'' +
+                '}';
     }
 }

@@ -21,10 +21,6 @@ public class AccountUser extends Account {
 
 
     public String toString2() {
-        return "AccountUser{" +
-                "id=" + id +
-                ", uid=" + uid +
-                ", money=" + money +
-                '}';
+        return super.toString();
     }
 }

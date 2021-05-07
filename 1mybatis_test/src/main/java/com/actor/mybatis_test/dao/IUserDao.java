@@ -1,5 +1,6 @@
 package com.actor.mybatis_test.dao;
 
+import com.actor.mybatis_test.domain.UserAccounts;
 import com.actor.mybatis_test.vo.QueryVo;
 import com.actor.mybatis_test.domain.User;
 import org.apache.ibatis.annotations.Insert;
@@ -78,4 +79,6 @@ public interface IUserDao {
      * 根据多个id查询Users
      */
     List<User> findUserByIds(@Param("vo") QueryVo vo);
+
+    UserAccounts findUserDelay(int id);
 }

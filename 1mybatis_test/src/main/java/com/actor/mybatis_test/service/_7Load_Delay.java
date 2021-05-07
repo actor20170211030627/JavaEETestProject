@@ -2,7 +2,10 @@ package com.actor.mybatis_test.service;
 
 import com.actor.mybatis_test.dao.IAccountDao;
 import com.actor.mybatis_test.dao.IRoleDao;
+import com.actor.mybatis_test.dao.IUserDao;
+import com.actor.mybatis_test.domain.Account;
 import com.actor.mybatis_test.domain.AccountUser;
+import com.actor.mybatis_test.domain.UserAccounts;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -24,7 +27,7 @@ import java.util.List;
 public class _7Load_Delay {
     private InputStream in;
     private SqlSession session;
-    private IRoleDao roleDao;
+    private IUserDao iUserDao;
     private IAccountDao accountDao;
     @Before
     public void init() throws IOException {
@@ -35,7 +38,7 @@ public class _7Load_Delay {
         //3.使用工厂生产SqlSession对象
         session = factory.openSession();
         //4.使用SqlSession创建Dao接口的代理对象
-        roleDao = session.getMapper(IRoleDao.class);
+        iUserDao = session.getMapper(IUserDao.class);
         accountDao = session.getMapper(IAccountDao.class);
     }
     @After
@@ -86,8 +89,17 @@ public class _7Load_Delay {
      *         <setting name="lazyLoadingEnabled" value="true"/>
      *         <!-- true: 任何方法调用都会加载该对象的所有属性. false: 每个属性会按需加载 -->
      *         <setting name="aggressiveLazyLoading" value="false"/>
+     *
+     *         <!-- log4j-api, 打印sql日志 -->
+     *         <setting name="logImpl" value="STDOUT_LOGGING" />
      *     </settings>
      * </configuration>
+     *
+     * 4.打印sql
+     * <configuration>
+     *     <settings>
+     *         <!-- log4j-api, 打印sql日志 -->
+     *         <setting name="logImpl" value="STDOUT_LOGGING" />
      */
     @Test
     public void findAllAccountDelay() {
@@ -103,4 +115,16 @@ public class _7Load_Delay {
      * https://www.bilibili.com/video/BV1mE411X7yp?p=63
      * mybatis一对多实现延迟加载
      */
+    //一个User有多个Account 1:29
+    @Test
+    public void findUserDelay() {
+        UserAccounts userAccounts = iUserDao.findUserDelay(5);
+        //重写tostring, 如果还不行, 重写get/set(没试, 因为没打印sql日志...)
+        System.out.println(userAccounts.toString2());
+
+        List<Account> accounts = userAccounts.getAccounts();
+        for (Account account : accounts) {
+            System.out.println(account);
+        }
+    }
 }

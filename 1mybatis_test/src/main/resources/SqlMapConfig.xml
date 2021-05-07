@@ -18,6 +18,16 @@
     <!--<properties url="file:///F:workspace_javaee/projectname/src/main/resource/jdbcConfig.properties"/> -->
     <properties resource="jdbcConfig.properties"/>
 
+    <settings>
+        <!-- 开启mybatis支持全局延迟加载 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- true: 任何方法调用都会加载该对象的所有属性. false: 每个属性会按需加载 -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+
+        <!-- log4j-api, 打印sql日志 -->
+        <setting name="logImpl" value="STDOUT_LOGGING" />
+    </settings>
+
     <!-- p28 配置别名, 只能配置 domain 中类的别名: https://www.bilibili.com/video/BV1mE411X7yp?p=38 -->
     <!-- 感觉没什么用 -->
     <typeAliases>
