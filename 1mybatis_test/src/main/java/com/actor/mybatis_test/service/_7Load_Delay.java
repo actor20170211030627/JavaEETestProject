@@ -5,6 +5,7 @@ import com.actor.mybatis_test.dao.IRoleDao;
 import com.actor.mybatis_test.dao.IUserDao;
 import com.actor.mybatis_test.domain.Account;
 import com.actor.mybatis_test.domain.AccountUser;
+import com.actor.mybatis_test.domain.User;
 import com.actor.mybatis_test.domain.UserAccounts;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -104,10 +105,15 @@ public class _7Load_Delay {
     @Test
     public void findAllAccountDelay() {
         List<AccountUser> accounts = accountDao.findAllAccountDelay();
+        System.out.println("==================查询完成===================");
         for (AccountUser account : accounts) {
-            //重写tostring, 如果还不行, 重写get/set(没试, 因为没打印sql日志...)
-            System.out.println(account.toString2());
-            System.out.println(account.user);
+            //直接account.user, 不会触发懒加载
+            System.out.printf("account: {id:%d, uid:%d, money:%f, user:%s}\n", account.id, account.uid, account.money, account.user);
+        }
+        System.out.println("==================打印完成, 下方调用account.getUser()===");
+        for (AccountUser account : accounts) {
+            //account.user, 不会触发懒加载, account.getUser()才能触发懒加载
+            System.out.println(account.getUser());
         }
     }
 
@@ -118,11 +124,13 @@ public class _7Load_Delay {
     //一个User有多个Account 1:29
     @Test
     public void findUserDelay() {
-        UserAccounts userAccounts = iUserDao.findUserDelay(5);
-        //重写tostring, 如果还不行, 重写get/set(没试, 因为没打印sql日志...)
-        System.out.println(userAccounts.toString2());
+        UserAccounts user = iUserDao.findUserDelay(5);
+        System.out.println("==================查询完成===================");
+        System.out.printf("account: {id:%d, age:%d, name:%s, birthday:%s, sex:%s, address:%s, accounts:%s}\n",
+                user.userId, user.userAge, user.userName, user.userBirthday, user.userSex, user.userAddress, user.accounts);
 
-        List<Account> accounts = userAccounts.getAccounts();
+        System.out.println("==================打印完成, 下方调用user.getAccounts()===");
+        List<Account> accounts = user.getAccounts();
         for (Account account : accounts) {
             System.out.println(account);
         }

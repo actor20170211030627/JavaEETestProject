@@ -154,7 +154,7 @@
 
         <!-- select属性指定的内容: 延迟加载查询用户的唯一标志 -->
         <!-- 延迟加载的时候, column必写 -->
-        <collection property="accounts" column="userId" ofType="com.actor.mybatis_test.domain.Account"
+        <collection property="accounts" column="id" ofType="com.actor.mybatis_test.domain.Account"
                     select="com.actor.mybatis_test.dao.IAccountDao.findAccountsByUserId"/>
     </resultMap>
     <!-- 一对多查询, 延迟加载 -->

@@ -14,34 +14,36 @@ import java.util.List;
 public class UserAccounts extends User {
 
     //一个用户多个账户
-    private List<Account> accounts;
+    public List<Account> accounts;
 
+    //如果懒加载的时候, 调用get方法才会触发查询accounts
     public List<Account> getAccounts() {
         return accounts;
     }
 
-    public void setAccounts(List<Account> accounts) {
-        this.accounts = accounts;
-    }
-
+    //如果懒加载的时候, 调用这个方法会报错
     @Override
     public String toString() {
         return JacksonUtils.object2Json(this);
     }
 
-//    public String toString2() {
+    //如果懒加载的时候, 调用这个方法会报错
+//    @Override
+//    public String toString() {
 //        return super.toString();
 //    }
 
-    public String toString2() {
-        return "UserAccounts{" +
-                "accounts=" + accounts +
-                ", userId=" + userId +
-                ", userAge=" + userAge +
-                ", userName='" + userName + '\'' +
-                ", userBirthday=" + userBirthday +
-                ", userSex='" + userSex + '\'' +
-                ", userAddress='" + userAddress + '\'' +
-                '}';
-    }
+    //如果懒加载的时候, 调用这个方法, 即使不打印accounts, 也会触发懒加载
+//    @Override
+//    public String toString() {
+//        return "UserAccounts{" +
+//                "accounts=" + accounts +
+//                ", userId=" + userId +
+//                ", userAge=" + userAge +
+//                ", userName='" + userName + '\'' +
+//                ", userBirthday=" + userBirthday +
+//                ", userSex='" + userSex + '\'' +
+//                ", userAddress='" + userAddress + '\'' +
+//                '}';
+//    }
 }
