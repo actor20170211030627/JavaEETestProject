@@ -3,12 +3,17 @@ package com.actor.mybatis_test.dao;
 import com.actor.mybatis_test.domain.User;
 import com.actor.mybatis_test.domain.UserAccounts;
 import com.actor.mybatis_test.domain.User_Anno;
-import com.actor.mybatis_test.vo.QueryVo;
+import org.apache.ibatis.annotations.CacheNamespace;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.mapping.FetchType;
 
 import java.util.List;
 
@@ -19,6 +24,7 @@ import java.util.List;
  *
  * @version 1.0
  */
+@CacheNamespace(blocking = true)
 public interface IUserDao_Anno {
 
     @Select("select * from user")
@@ -35,10 +41,12 @@ public interface IUserDao_Anno {
     @Update("update user set username = #{username}, birthday = #{birthday}, sex = #{sex}, address = #{address} where id = #{id}")
     void updateUser(User_Anno user);
 
+    @Delete("delete from user where id = #{id}")
     void deleteUser(Integer id);
 
     //模糊查询, 这儿需要提供百分号, 例: "%王%"
-    List<User> findByName1(String userName);
+    @Select("select * from user where username like #{userName}")
+    List<User_Anno> findByName1(String userName);
 
     /**
      * 模糊查询, 这儿不需要提供百分号, 例: 王
@@ -46,26 +54,42 @@ public interface IUserDao_Anno {
      * 打印的sql语句: select * from user where username like '%王%'
      */
     @Deprecated
-    List<User> findByName2(String userName);
+    @Select("select * from user where username like '%${userName}%'")
+    List<User_Anno> findByName2(@Param("userName") String userName, /*@Param("p2") */int testParam2);
 
     //查询总用户数
+    @Select("select count(1) from user")
     int findTotal();
 
-    //根据queryVo中的条件查询用户
-    List<User> findUserByVo(QueryVo vo);
+
+    @Select("select * from user")
+    @Results(id = "userMap", value = {
+            @Result(id = true, property = "userId", column = "id"),
+            @Result(property = "userAge", column = "age"),
+            @Result(property = "userName", column = "username"),
+            @Result(property = "userBirthday", column = "birthday"),
+            @Result(property = "userSex", column = "sex"),
+            @Result(property = "userAddress", column = "address")
+    })
+    List<User> findAllUser();
 
 
-    /**
-     * 根据传入参数条件查询
-     */
-    @Deprecated
-    List<User> findUserByCondition1(@Param("user") User user);
-    List<User> findUserByCondition2(@Param("user") User user);
-
-    /**
-     * 根据多个id查询Users
-     */
-    List<User> findUserByIds(@Param("vo") QueryVo vo);
-
-    UserAccounts findUserDelay(int id);
+    @Select("select * from user")
+    @Results(id = "userAccountsMap", value = {
+            @Result(id = true, property = "userId", column = "id"),
+            @Result(property = "userAge", column = "age"),
+            @Result(property = "userName", column = "username"),
+            @Result(property = "userBirthday", column = "birthday"),
+            @Result(property = "userSex", column = "sex"),
+            @Result(property = "userAddress", column = "address"),
+            @Result(property = "accounts",
+                    column = "id",//user的id
+                    /**
+                     * @see IAccountDao#findAccountsByUserId(int)
+                    */
+                    many = @Many(select = "com.actor.mybatis_test.dao.IAccountDao.findAccountsByUserId",
+                            //懒加载
+                            fetchType = FetchType.LAZY))
+    })
+    List<UserAccounts> findAllUserAccounts();
 }
