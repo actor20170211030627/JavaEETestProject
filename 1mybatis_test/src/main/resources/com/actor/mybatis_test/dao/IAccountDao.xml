@@ -12,7 +12,7 @@
         <result property="money" column="money"/>
         <!-- 绑定User, uid: 通过uid获取.   javaType: 封装到哪个对象(可不写) -->
         <association property="user" column="uid" javaType="com.actor.mybatis_test.domain.User">
-            <!-- 注意: 这儿要写uid, 不能写id, 否则查出来的是Account的<id column="id"/>的值... -->
+            <!-- 注意: 这儿要写uid(<result column="uid"/>), 不能写id, 否则查出来的是Account的<id column="id"/>的值... -->
             <id property="userId" column="uid"/>
             <result property="userAge" column="age"/>
             <result property="userName" column="username"/>

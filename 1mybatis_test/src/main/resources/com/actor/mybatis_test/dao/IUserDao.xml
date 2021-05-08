@@ -72,7 +72,7 @@
         delete from user where id = #{iaaa};
     </delete>
 
-    <select id="findById" parameterType="Integer" resultMap="userMap">
+    <select id="findById" parameterType="Integer" resultMap="userMap" useCache="true">
         select * from user WHERE id = #{id}
     </select>
 
@@ -153,7 +153,7 @@
         <result property="userBirthday" column="birthday"/>
 
         <!-- select属性指定的内容: 延迟加载查询用户的唯一标志 -->
-        <!-- 延迟加载的时候, column必写 -->
+        <!-- 延迟加载的时候, column必写, 并且不能写成'userId' -->
         <collection property="accounts" column="id" ofType="com.actor.mybatis_test.domain.Account"
                     select="com.actor.mybatis_test.dao.IAccountDao.findAccountsByUserId"/>
     </resultMap>
@@ -161,4 +161,7 @@
     <select id="findUserDelay" resultMap="userAccountsMapDelay">
         select * from user where id = #{id}
     </select>
+
+    <!-- 开启User支持Mybatis二级缓存 -->
+    <cache/>
 </mapper>

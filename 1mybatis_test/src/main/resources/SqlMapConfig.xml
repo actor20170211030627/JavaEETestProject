@@ -26,6 +26,9 @@
 
         <!-- log4j-api, 打印sql日志 -->
         <setting name="logImpl" value="STDOUT_LOGGING" />
+
+        <!-- 配置Mybatis二级缓存, 默认true -->
+        <setting name="cacheEnabled" value="true"/>
     </settings>
 
     <!-- p28 配置别名, 只能配置 domain 中类的别名: https://www.bilibili.com/video/BV1mE411X7yp?p=38 -->

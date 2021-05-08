@@ -20,7 +20,7 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
- * description: 描述
+ * description: 延迟加载
  *
  * date       : 2021/5/6 on 22
  * @version 1.0
@@ -96,7 +96,7 @@ public class _7Load_Delay {
      *     </settings>
      * </configuration>
      *
-     * 4.打印sql
+     * 4.打印sql(https://www.bilibili.com/video/BV1mE411X7yp?p=68 7:29秒有log4j.properties配置文件)
      * <configuration>
      *     <settings>
      *         <!-- log4j-api, 打印sql日志 -->
