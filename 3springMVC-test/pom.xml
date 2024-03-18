@@ -25,7 +25,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- 20210316,Github修复漏洞: Bump spring.version from 5.0.2.RELEASE to 5.3.4 in /springMVC-test -->
-        <spring.version>6.0.14</spring.version>
+        <spring.version>6.0.18</spring.version>
     </properties>
 
     <dependencies>
